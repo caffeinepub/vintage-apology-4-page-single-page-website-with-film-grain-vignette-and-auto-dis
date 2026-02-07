@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        /* Fixed color scheme: #20201F background, #EE6E4D cards/buttons */
+        --deep-dark: 12.5% 0.01 30;
+        --warm-orange: 65% 0.18 35;
+        
+        --radius: 0.5rem;
+        --background: var(--deep-dark);
+        --foreground: var(--warm-orange);
+        --card: var(--warm-orange);
+        --card-foreground: var(--deep-dark);
+        --popover: var(--warm-orange);
+        --popover-foreground: var(--deep-dark);
+        --primary: var(--warm-orange);
+        --primary-foreground: var(--deep-dark);
+        --secondary: var(--deep-dark);
+        --secondary-foreground: var(--warm-orange);
+        --muted: 50% 0.05 30;
+        --muted-foreground: 60% 0.08 35;
+        --accent: var(--warm-orange);
+        --accent-foreground: var(--deep-dark);
+        --destructive: 0.577 0.245 27.325;
+        --destructive-foreground: var(--warm-orange);
+        --border: var(--warm-orange);
+        --input: var(--warm-orange);
+        --ring: var(--warm-orange);
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        background-color: #20201F;
+        color: #EE6E4D;
+        font-family: 'Playfair Display', 'Georgia', 'Lora', serif;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+}
+
+/* Stage transition animations */
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fade-out-down {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+}
+
+.stage-enter {
+    animation: fade-in-up 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.stage-exit {
+    animation: fade-out-down 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Text styling */
+.romantic-text {
+    font-family: 'Playfair Display', 'Georgia', 'Lora', serif;
+    color: #EE6E4D;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Apology button styling */
+.apology-button {
+    background-color: #EE6E4D;
+    color: #20201F;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-family: 'Playfair Display', 'Georgia', 'Lora', serif;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(238, 110, 77, 0.3);
+    text-align: center;
+}
+
+.apology-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(238, 110, 77, 0.4);
+}
+
+.apology-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(238, 110, 77, 0.3);
+}
+
+.bottom-button {
+    margin-top: auto;
+}
+
+.no-button {
+    position: relative;
+}
+
+/* Uploaded image container */
+.uploaded-image-container {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(238, 110, 77, 0.25);
+}
+
+.uploaded-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Apology message container */
+.apology-message-container {
+    max-width: 700px;
+    padding: 2rem;
+    background-color: rgba(238, 110, 77, 0.1);
+    border-radius: 16px;
+    border: 2px solid rgba(238, 110, 77, 0.3);
+}
+
+/* Final GIF container */
+.final-gif-container {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(238, 110, 77, 0.25);
+}
+
+.final-gif {
+    width: 100%;
+    height: auto;
+    display: block;
+}

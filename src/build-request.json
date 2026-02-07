@@ -1,0 +1,154 @@
+{
+  "kind": "build_request",
+  "title": "Implement 5-page romantic flow with required uploaded images on Pages 2 & 3 and playful moving No button",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Update the page flow to exactly 5 pages with smooth transitions between pages, matching the user-specified navigation rules: Page 1 shows a visible “Next” button (no auto-advance), Pages 1–4 each have a visible “Next” button (Page 4 advances only via “Yes 🌹”), and Page 5 has no Next button.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create a 5-page interactive romantic website... Keep soft rounded buttons and smooth transitions between pages.",
+          "Every page must have a visible \"Next\" button except the final page."
+        ]
+      },
+      "acceptanceCriteria": [
+        "App renders 5 distinct pages in order (1→2→3→4→5).",
+        "Page transitions are animated (no abrupt page switch).",
+        "Page 1 includes a visible Next button and does not auto-advance.",
+        "Pages 2 and 3 include visible Next buttons at the bottom center.",
+        "Page 4 advances to Page 5 only when “Yes 🌹” is clicked; Page 5 has no Next button."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement the exact required text content and page layouts:\n- Page 1: centered text exactly “I'm really sorry chlow! 🤌🏻” and a clearly visible Next button bottom-center; no image.\n- Page 2: centered text exactly “I want to hold u every time 🫠”, display at least one user-uploaded image below the text, and a Next button bottom-center.\n- Page 3: display a short heartfelt apology message in a soft romantic tone, display at least one user-uploaded image below the message, and a Next button bottom-center.\n- Page 4: centered text exactly “Are you willing to forgive me, bab? ❤️” and two buttons “Yes 🌹” and “No 🥀”.\n- Page 5: centered text exactly “Awwwwweehh! Lvb u bab 💋” and a cute cartoon couple hugging GIF centered.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "PAGE 1:\nCenter text: \"I'm really sorry chlow! 🤌🏻\"",
+          "PAGE 2:\nCenter text: \"I want to hold u every time 🫠\"",
+          "PAGE 3:\nShow a short heartfelt apology message in a soft romantic tone.",
+          "PAGE 4:\nCenter text: \"Are you willing to forgive me, bab? ❤️\"",
+          "PAGE 5 (after clicking Yes):\nCenter text: \"Awwwwweehh! Lvb u bab 💋\"\nShow a cute cartoon couple hugging GIF in the center."
+        ]
+      },
+      "acceptanceCriteria": [
+        "All page texts match the user-provided strings exactly (including emoji and spelling).",
+        "Page 1 contains no image element.",
+        "Page 2 shows the specified text, at least one uploaded image, and a bottom-centered Next button.",
+        "Page 3 shows a romantic apology paragraph, at least one uploaded image, and a bottom-centered Next button.",
+        "Page 4 shows the specified prompt and the two labeled buttons.",
+        "Page 5 shows the specified final text and an animated hugging-couple GIF centered."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Ensure the user-uploaded images are used (and only user-uploaded images are used) wherever images are required: Page 2 and Page 3 MUST each display at least one of the uploaded image files: `6de4a0ed8a66079b44f32ddcb86801a1-5.jpg`, `Snapchat-44209910-5.jpg`, `8cea9dbe688448677b472a8d5e73118d-5.jpg`, `8cea9dbe688448677b472a8d5e73118d-6.jpg`. Do not use stock images or placeholders for those pages.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "IMPORTANT: On every page where an image is required, you MUST display the image that the USER UPLOADS as input. Do NOT replace it with stock images or placeholders.",
+          "Ensure:\n- USER UPLOADED IMAGE MUST APPEAR on Page 2 and Page 3 without fail."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Page 2 renders an <img> whose src points to one of the listed uploaded filenames and is visibly displayed.",
+        "Page 3 renders an <img> whose src points to one of the listed uploaded filenames and is visibly displayed.",
+        "No stock/placeholder image URLs are used on Page 2 or Page 3."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement Page 4 behavior so the “No 🥀” button playfully moves/shifts position on touch/hover/interaction to make it difficult to click, while the “Yes 🌹” button remains clickable and navigates to Page 5.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "The \"No 🥀\" button should playfully move/shift position when touched so it cannot be clicked easily.",
+          "The \"Yes 🌹\" button should be clickable and go to the next page."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Interacting with the “No 🥀” button (hover and touch) changes its position via a visible shift.",
+        "“No 🥀” does not reliably remain clickable in the same spot (it moves away on interaction).",
+        "Clicking “Yes 🌹” always advances to Page 5."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Apply and keep a consistent minimal, aesthetic, romantic design across all pages using the color theme #20201F (dark background) and #EE6E4D (accent), a clean serif romantic font for all text, soft rounded buttons, and smooth transition styling consistent with the existing transition system.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create a 5-page interactive romantic website with the color theme #20201F (dark background) and #EE6E4D (accent). Use a clean, decent serif-style romantic font for all text. Keep soft rounded buttons and smooth transitions between pages.",
+          "Keep the design minimal, aesthetic, and romantic using #20201F and #EE6E4D."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Background is #20201F and accents/buttons use #EE6E4D across all pages.",
+        "All text uses the configured serif font stack (consistent site-wide).",
+        "Buttons are visibly rounded and have smooth hover/press transitions.",
+        "Page transition animation is present between each page change."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Add the hugging-couple GIF as a static frontend asset and render it on Page 5 centered on the page.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Show a cute cartoon couple hugging GIF in the center."
+        ]
+      },
+      "acceptanceCriteria": [
+        "A GIF file exists under `frontend/public/assets/generated/` and is referenced directly from the frontend (no backend routing).",
+        "Page 5 displays the GIF centered and visibly animated."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files in `frontend/src/components/ui` or the immutable hook/entry files listed in SYSTEM_CONTEXT (`frontend/src/hooks/useInternetIdentity.ts`, `frontend/src/hooks/useInternetIdentity.tsx`, `frontend/src/hooks/useActor.ts`, `frontend/src/main.tsx`).",
+    "Backend is not required for this feature; keep the Motoko canister unchanged unless a clear need arises.",
+    "Do not use any stock images or placeholders on Page 2 or Page 3; only the provided uploaded image files may be displayed there."
+  ],
+  "nonGoals": [
+    "Adding authentication or Internet Identity flows.",
+    "Storing user-uploaded images at runtime (treat the provided uploaded images as static build inputs for this project).",
+    "Adding additional pages beyond the specified 5-page flow."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Cute cartoon couple hugging animation, simple cartoon style, transparent or light background (hugging-couple.dim_600x600.gif)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

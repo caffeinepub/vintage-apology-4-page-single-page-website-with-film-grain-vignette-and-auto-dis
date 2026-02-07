@@ -1,0 +1,128 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-update-the-page-flow-to-exactly-5-pages-with-smooth-transitions-between-pages-matching-the-user-specified-navigation-rules-page-1-shows-a-visible-next-button-no-auto-advance-pages-1-4-each-have-a-visible-next-button-page-4-advances-only-via-yes-and-page-5-has-no-next-button",
+      "featureTitle": "Update the page flow to exactly 5 pages with smooth transitions between pages, matching the user-specified navigation rules: Page 1 shows a visible “Next” button (no auto-advance), Pages 1–4 each have a visible “Next” button (Page 4 advances only via “Yes 🌹”), and Page 5 has no Next button.",
+      "files": [
+        "frontend/src/components/ValentineFlow.tsx",
+        "frontend/src/components/pages/Page3Apology.tsx",
+        "frontend/src/components/pages/Page3Forgive.tsx",
+        "frontend/src/components/pages/Page5Final.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-exact-required-text-content-and-page-layouts-page-1-centered-text-exactly-i-m-really-sorry-chlow-and-a-clearly-visible-next-button-bottom-center-no-image-page-2-centered-text-exactly-i-want-to-hold-u-every-time-display-at-least-one-user-uploaded-image-below-the-text-and-a-next-button-bottom-center-page-3-display-a-short-heartfelt-apology-message-in-a-soft-romantic-tone-display-at-least-one-user-uploaded-image-below-the-message-and-a-next-button-bottom-center-page-4-centered-text-exactly-are-you-willing-to-forgive-me-bab-and-two-buttons-yes-and-no-page-5-centered-text-exactly-awwwwweehh-lvb-u-bab-and-a-cute-cartoon-couple-hugging-gif-centered",
+      "featureTitle": "Implement the exact required text content and page layouts:\n- Page 1: centered text exactly “I'm really sorry chlow! 🤌🏻” and a clearly visible Next button bottom-center; no image.\n- Page 2: centered text exactly “I want to hold u every time 🫠”, display at least one user-uploaded image below the text, and a Next button bottom-center.\n- Page 3: display a short heartfelt apology message in a soft romantic tone, display at least one user-uploaded image below the message, and a Next button bottom-center.\n- Page 4: centered text exactly “Are you willing to forgive me, bab? ❤️” and two buttons “Yes 🌹” and “No 🥀”.\n- Page 5: centered text exactly “Awwwwweehh! Lvb u bab 💋” and a cute cartoon couple hugging GIF centered.",
+      "files": [
+        "frontend/src/components/pages/Page1Splash.tsx",
+        "frontend/src/components/pages/Page2Hold.tsx",
+        "frontend/src/components/pages/Page3Apology.tsx",
+        "frontend/src/components/pages/Page4ForgivePrompt.tsx",
+        "frontend/src/components/pages/Page4Hug.tsx",
+        "frontend/src/components/pages/Page5Final.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-the-user-uploaded-images-are-used-and-only-user-uploaded-images-are-used-wherever-images-are-required-page-2-and-page-3-must-each-display-at-least-one-of-the-uploaded-image-files-6de4a0ed8a66079b44f32ddcb86801a1-5-jpg-snapchat-44209910-5-jpg-8cea9dbe688448677b472a8d5e73118d-5-jpg-8cea9dbe688448677b472a8d5e73118d-6-jpg-do-not-use-stock-images-or-placeholders-for-those-pages",
+      "featureTitle": "Ensure the user-uploaded images are used (and only user-uploaded images are used) wherever images are required: Page 2 and Page 3 MUST each display at least one of the uploaded image files: `6de4a0ed8a66079b44f32ddcb86801a1-5.jpg`, `Snapchat-44209910-5.jpg`, `8cea9dbe688448677b472a8d5e73118d-5.jpg`, `8cea9dbe688448677b472a8d5e73118d-6.jpg`. Do not use stock images or placeholders for those pages.",
+      "files": [
+        "frontend/src/components/pages/Page2Hold.tsx",
+        "frontend/src/components/pages/Page3Apology.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-page-4-behavior-so-the-no-button-playfully-moves-shifts-position-on-touch-hover-interaction-to-make-it-difficult-to-click-while-the-yes-button-remains-clickable-and-navigates-to-page-5",
+      "featureTitle": "Implement Page 4 behavior so the “No 🥀” button playfully moves/shifts position on touch/hover/interaction to make it difficult to click, while the “Yes 🌹” button remains clickable and navigates to Page 5.",
+      "files": [
+        "frontend/src/components/pages/Page4ForgivePrompt.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-and-keep-a-consistent-minimal-aesthetic-romantic-design-across-all-pages-using-the-color-theme-20201f-dark-background-and-ee6e4d-accent-a-clean-serif-romantic-font-for-all-text-soft-rounded-buttons-and-smooth-transition-styling-consistent-with-the-existing-transition-system",
+      "featureTitle": "Apply and keep a consistent minimal, aesthetic, romantic design across all pages using the color theme #20201F (dark background) and #EE6E4D (accent), a clean serif romantic font for all text, soft rounded buttons, and smooth transition styling consistent with the existing transition system.",
+      "files": [
+        "frontend/src/components/pages/Page1Splash.tsx",
+        "frontend/src/components/pages/Page2Hold.tsx",
+        "frontend/src/components/pages/Page3Apology.tsx",
+        "frontend/src/components/pages/Page4ForgivePrompt.tsx",
+        "frontend/src/components/pages/Page5Final.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-the-hugging-couple-gif-as-a-static-frontend-asset-and-render-it-on-page-5-centered-on-the-page",
+      "featureTitle": "Add the hugging-couple GIF as a static frontend asset and render it on Page 5 centered on the page.",
+      "files": [
+        "frontend/src/components/pages/Page5Final.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "5-page romantic flow with uploaded images and playful moving No button",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Update flow controller to exactly 5 pages with smooth animated transitions and the specified navigation rules (no auto-advance; Page 4 advances only via “Yes 🌹”; Page 5 has no Next).",
+      "acceptanceCriteria": [
+        "App renders 5 distinct pages in order (1→2→3→4→5).",
+        "Page transitions are animated (no abrupt page switch).",
+        "Page 1 includes a visible Next button and does not auto-advance.",
+        "Pages 2 and 3 include visible Next buttons at the bottom center.",
+        "Page 4 advances to Page 5 only when “Yes 🌹” is clicked; Page 5 has no Next button."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ValentineFlow.tsx",
+          "operation": "modify",
+          "description": "Remove the Page 1 auto-advance logic; expand the page state to 5 pages; wire page components to advance strictly via the required buttons (Page 1/2/3 Next, Page 4 “Yes 🌹” only), and render Page 5 as the final stage while continuing to use StageTransition for animated transitions."
+        },
+        {
+          "path": "frontend/src/components/pages/Page5Final.tsx",
+          "operation": "create",
+          "description": "Create the final Page 5 component to be rendered by the flow controller (no Next button), so it can be wired into the 5-step sequence."
+        },
+        {
+          "path": "frontend/src/components/pages/Page3Apology.tsx",
+          "operation": "create",
+          "description": "Create the new Page 3 component (apology message + uploaded image + Next) so the flow can be expanded from 4 pages to exactly 5 pages."
+        },
+        {
+          "path": "frontend/src/components/pages/Page3Forgive.tsx",
+          "operation": "rename",
+          "description": "Rename this file to represent Page 4 (the “forgive me” yes/no prompt) so the codebase matches the new 5-page ordering and reduces confusion during wiring."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement exact required text content and page layouts for Pages 1–5, including bottom-centered Next buttons on Pages 1–3 and the yes/no prompt on Page 4.",
+      "acceptanceCriteria": [
+        "All page texts match the user-provided strings exactly (including emoji and spelling).",
+        "Page 1 contains no image element.",
+        "Page 2 shows the specified text, at least one uploaded image, and a bottom-centered Next button.",
+        "Page 3 shows a romantic apology paragraph, at least one uploaded image, and a bottom-centered Next button.",
+        "Page 4 shows the specified prompt and the two labeled buttons.",
+        "Page 5 shows the specified final text and an animated hugging-couple GIF centered."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/pages/Page1Splash.tsx",
+          "operation": "modify",
+          "description": "Update Page 1 to show centered text exactly “I'm really sorry chlow! 🤌🏻” and add a clearly visible Next button positioned bottom-center; ensure there is no image rendered on this page."
+        },
+        {
+          "path": "frontend/src/components/pages/Page2Hold.tsx",
+          "operation": "modify",
+          "description": "Update Page 2 to show centered text exactly “I want to hold u every time 🫠”, render at least one user-uploaded image below the text, and move the Next button to the bottom-center (label exactly “Next”)."
+        },
+        {
+          "path": "frontend/src/components/pages/Page3Apology.tsx",
+          "operation": "modify",
+          "description": "Implement Page 3 with a short heartfelt apology paragraph in a soft romantic tone, display at least one user-uploaded image below the message, and include a bottom-centered Next button (label exactly “Next”)."
+        },
+        {
+          "path": "frontend/src/components/pages/Page4ForgivePrompt.tsx",
+          "operation": "create",
+          "description": "Create/implement Page 4 to show centered text exactly “Are you willing to forgive me, bab? ❤️” and render two buttons labeled exactly “Yes 🌹” and “No 🥀”, with navigation to Page 5 only via “Yes 🌹”."
+        },
+        {
+          "path": "frontend/src/components/pages/Page4Hug.tsx",
+          "operation": "modify",
+          "description": "Refactor the existing final-page content out of this component (it no longer represents Page 4 in the new 5-page flow) and/or convert it into the new Page 5 final layout per REQ-2 and REQ-6 (centered final text and hugging GIF), ensuring the Page 4 content is not duplicated here."
+        },
+        {
+          "path": "frontend/src/components/pages/Page5Final.tsx",
+          "operation": "modify",
+          "description": "Implement Page 5 to show centered text exactly “Awwwwweehh! Lvb u bab 💋” and render the hugging-couple GIF centered; ensure there is no Next button on this page."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Use only the provided user-uploaded images on Pages 2 and 3 (no stock/placeholder images) and ensure each page displays at least one of the listed filenames.",
+      "acceptanceCriteria": [
+        "Page 2 renders an <img> whose src points to one of the listed uploaded filenames and is visibly displayed.",
+        "Page 3 renders an <img> whose src points to one of the listed uploaded filenames and is visibly displayed.",
+        "No stock/placeholder image URLs are used on Page 2 or Page 3."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/uploaded/6de4a0ed8a66079b44f32ddcb86801a1-5.jpg",
+          "operation": "create",
+          "description": "Add the user-uploaded image asset as a static file so Pages 2/3 can reference it directly by filename (no runtime upload/storage)."
+        },
+        {
+          "path": "frontend/public/assets/uploaded/Snapchat-44209910-5.jpg",
+          "operation": "create",
+          "description": "Add the user-uploaded image asset as a static file so Pages 2/3 can reference it directly by filename (no runtime upload/storage)."
+        },
+        {
+          "path": "frontend/public/assets/uploaded/8cea9dbe688448677b472a8d5e73118d-5.jpg",
+          "operation": "create",
+          "description": "Add the user-uploaded image asset as a static file so Pages 2/3 can reference it directly by filename (no runtime upload/storage)."
+        },
+        {
+          "path": "frontend/public/assets/uploaded/8cea9dbe688448677b472a8d5e73118d-6.jpg",
+          "operation": "create",
+          "description": "Add the user-uploaded image asset as a static file so Pages 2/3 can reference it directly by filename (no runtime upload/storage)."
+        },
+        {
+          "path": "frontend/src/components/pages/Page2Hold.tsx",
+          "operation": "modify",
+          "description": "Ensure Page 2 references and displays at least one of the allowed uploaded filenames (e.g., from frontend/public/assets/uploaded/) and does not reference any stock/placeholder image URLs."
+        },
+        {
+          "path": "frontend/src/components/pages/Page3Apology.tsx",
+          "operation": "modify",
+          "description": "Ensure Page 3 references and displays at least one of the allowed uploaded filenames (e.g., from frontend/public/assets/uploaded/) and does not reference any stock/placeholder image URLs."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Make Page 4’s “No 🥀” button playfully move on hover/touch/interaction while keeping “Yes 🌹” reliably clickable and navigating to Page 5.",
+      "acceptanceCriteria": [
+        "Interacting with the “No 🥀” button (hover and touch) changes its position via a visible shift.",
+        "“No 🥀” does not reliably remain clickable in the same spot (it moves away on interaction).",
+        "Clicking “Yes 🌹” always advances to Page 5."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/pages/Page4ForgivePrompt.tsx",
+          "operation": "modify",
+          "description": "Implement the moving “No 🥀” behavior by shifting position on hover and touch/pointer interactions (not only click), while ensuring “Yes 🌹” remains stable and triggers the flow advance to Page 5."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add/adjust styles needed to support the playful moving “No 🥀” behavior (e.g., positioning context and smooth movement transitions) without changing the global theme colors."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Apply a consistent minimal romantic design across all pages with #20201F background, #EE6E4D accents, serif romantic font, rounded buttons, and smooth page transitions consistent with the existing transition system.",
+      "acceptanceCriteria": [
+        "Background is #20201F and accents/buttons use #EE6E4D across all pages.",
+        "All text uses the configured serif font stack (consistent site-wide).",
+        "Buttons are visibly rounded and have smooth hover/press transitions.",
+        "Page transition animation is present between each page change."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Ensure global styling enforces the #20201F / #EE6E4D theme, serif font usage, rounded button styling, and maintains/aligns StageTransition animation timing to match the flow’s transition duration; add a reusable class for bottom-centered Next button layout used on Pages 1–3."
+        },
+        {
+          "path": "frontend/src/components/pages/Page1Splash.tsx",
+          "operation": "modify",
+          "description": "Align Page 1 layout with the minimal romantic design and ensure the bottom-centered Next button uses the consistent rounded button styling and transition effects."
+        },
+        {
+          "path": "frontend/src/components/pages/Page2Hold.tsx",
+          "operation": "modify",
+          "description": "Align Page 2 layout with the minimal romantic design (typography, spacing, bottom-centered Next button styling) and ensure the uploaded image presentation matches the aesthetic (rounded corners/shadow as appropriate)."
+        },
+        {
+          "path": "frontend/src/components/pages/Page3Apology.tsx",
+          "operation": "modify",
+          "description": "Align Page 3 layout with the minimal romantic design (typography, spacing, bottom-centered Next button styling) and ensure the uploaded image presentation matches the aesthetic (rounded corners/shadow as appropriate)."
+        },
+        {
+          "path": "frontend/src/components/pages/Page4ForgivePrompt.tsx",
+          "operation": "modify",
+          "description": "Align Page 4 layout with the minimal romantic design (typography and soft rounded buttons) while preserving the moving “No 🥀” interaction behavior."
+        },
+        {
+          "path": "frontend/src/components/pages/Page5Final.tsx",
+          "operation": "modify",
+          "description": "Align Page 5 layout with the minimal romantic design (centered text + centered GIF) and ensure no Next button is present."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Add the hugging-couple GIF as a static frontend asset and render it centered on Page 5.",
+      "acceptanceCriteria": [
+        "A GIF file exists under `frontend/public/assets/generated/` and is referenced directly from the frontend (no backend routing).",
+        "Page 5 displays the GIF centered and visibly animated."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/hugging-couple.dim_600x600.gif",
+          "operation": "create",
+          "description": "Add the required generated GIF asset at the exact path frontend/public/assets/generated/hugging-couple.dim_600x600.gif."
+        },
+        {
+          "path": "frontend/src/components/pages/Page5Final.tsx",
+          "operation": "modify",
+          "description": "Reference and render the static GIF from frontend/public/assets/generated/hugging-couple.dim_600x600.gif centered on Page 5, ensuring it visibly animates."
+        }
+      ]
+    }
+  ]
+}
