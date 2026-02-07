@@ -1,30 +1,45 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import FloatingHeartsBackground from '../FloatingHeartsBackground';
 
-interface Page4ForgivePromptProps {
-    onYes: () => void;
-}
-
-export default function Page4ForgivePrompt({ onYes }: Page4ForgivePromptProps) {
+export default function Page4ForgivePrompt() {
     const [noButtonPosition, setNoButtonPosition] = useState({ x: 0, y: 0 });
+    const [showFinal, setShowFinal] = useState(false);
+    const [showHearts, setShowHearts] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
 
     const handleNoInteraction = (e: React.MouseEvent | React.TouchEvent) => {
         e.preventDefault();
         
-        // Get container bounds to keep button visible
         const container = containerRef.current;
         if (!container) return;
         
         const containerRect = container.getBoundingClientRect();
-        const maxX = Math.min(containerRect.width / 3, 250);
-        const maxY = Math.min(containerRect.height / 3, 150);
+        const maxX = Math.min(containerRect.width / 2.5, 200);
+        const maxY = Math.min(containerRect.height / 2.5, 150);
         
-        // Generate random position with larger range
         const newX = (Math.random() - 0.5) * maxX * 2;
         const newY = (Math.random() - 0.5) * maxY * 2;
         
         setNoButtonPosition({ x: newX, y: newY });
     };
+
+    const handleYes = () => {
+        setShowFinal(true);
+        setShowHearts(true);
+    };
+
+    if (showFinal) {
+        return (
+            <>
+                {showHearts && <FloatingHeartsBackground />}
+                <div className="flex flex-col items-center justify-center min-h-screen w-full px-6">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl text-center romantic-text final-message">
+                        Awwwwweehh! Lvb u bab 💋
+                    </h1>
+                </div>
+            </>
+        );
+    }
 
     return (
         <div 
@@ -32,11 +47,11 @@ export default function Page4ForgivePrompt({ onYes }: Page4ForgivePromptProps) {
             className="flex flex-col items-center justify-center min-h-screen w-full gap-12 px-6"
         >
             <h1 className="text-3xl md:text-4xl lg:text-5xl text-center romantic-text">
-                Are you willing to forgive me, bab? ❤️
+                Are u willing to forgive me bab ❤️
             </h1>
-            <div className="flex gap-6 flex-wrap justify-center relative min-h-[120px]">
+            <div className="flex gap-6 flex-wrap justify-center relative min-h-[120px] w-full max-w-md">
                 <button
-                    onClick={onYes}
+                    onClick={handleYes}
                     className="apology-button"
                 >
                     Yes 🌹

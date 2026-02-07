@@ -2,10 +2,69 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-page-2-must-display-centered-text-exactly-i-want-to-hold-u-every-time-and-a-clearly-visible-next-button-at-the-bottom-center-of-the-viewport",
-      "featureTitle": "Page 2 must display centered text exactly: \"I want to hold u every time 🫠\" and a clearly visible “Next” button at the bottom center of the viewport.",
+      "featureId": "feature-update-the-single-page-flow-to-have-exactly-4-distinct-sections-that-transition-smoothly-in-this-order-page-1-page-2-page-3-page-4-pages-1-3-must-advance-via-a-clearly-visible-next-button-and-page-4-must-not-navigate-away-instead-it-must-show-the-final-yes-outcome-content-in-place-after-clicking-yes",
+      "featureTitle": "Update the single-page flow to have exactly 4 distinct sections that transition smoothly in this order: Page 1 -> Page 2 -> Page 3 -> Page 4. Pages 1–3 must advance via a clearly visible “Next” button, and Page 4 must not navigate away; instead it must show the final “Yes” outcome content in-place after clicking “Yes 🌹”.",
       "files": [
-        "frontend/src/components/pages/Page2Hold.tsx"
+        "frontend/src/components/ValentineFlow.tsx",
+        "frontend/src/components/pages/Page5Final.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-the-visual-design-matches-a-clean-aesthetic-dark-theme-black-deep-grey-with-elegant-typography-playfair-display-or-poppins-applied-consistently-across-all-sections-while-keeping-the-layout-responsive-for-mobile",
+      "featureTitle": "Ensure the visual design matches a clean, aesthetic dark theme (black/deep grey) with elegant typography (Playfair Display or Poppins) applied consistently across all sections, while keeping the layout responsive for mobile.",
+      "files": [
+        "frontend/index.html",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-page-1-must-display-the-centered-text-exactly-i-m-really-sorry-chlow-and-a-next-button-positioned-at-the-bottom-of-the-viewport",
+      "featureTitle": "Page 1 must display the centered text exactly \"I'm really sorry chlow! 🤌🏻\" and a “Next” button positioned at the bottom of the viewport.",
+      "files": [
+        "frontend/src/components/pages/Page1Splash.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-page-2-must-display-the-text-exactly-i-want-to-hold-u-everytime-and-render-a-black-and-white-grayscale-image-area-beneath-it-include-a-clear-code-comment-indicating-where-the-user-can-replace-the-image-with-their-own-url",
+      "featureTitle": "Page 2 must display the text exactly \"I want to hold u everytime 🫠\" and render a black-and-white (grayscale) image area beneath it. Include a clear code comment indicating where the user can replace the image with their own URL.",
+      "files": [
+        "frontend/src/components/pages/Page2Hold.tsx",
+        "frontend/src/index.css"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -20,10 +79,30 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-page-4-must-display-centered-text-exactly-are-you-willing-to-forgive-me-bab-and-two-buttons-below-it-labeled-exactly-yes-and-no-clicking-yes-must-navigate-to-page-5",
-      "featureTitle": "Page 4 must display centered text exactly: \"Are you willing to forgive me, bab? ❤️\" and two buttons below it labeled exactly \"Yes 🌹\" and \"No 🥀\". Clicking \"Yes 🌹\" must navigate to Page 5.",
+      "featureId": "feature-page-3-must-display-a-heartfelt-apology-love-message-as-a-long-paragraph-placeholder-and-show-another-image-placeholder-for-a-user-uploaded-photo-include-a-clear-code-comment-indicating-where-the-user-can-replace-the-image-with-their-own-url",
+      "featureTitle": "Page 3 must display a heartfelt \"Apology Love Message\" as a long paragraph placeholder and show another image placeholder for a user-uploaded photo. Include a clear code comment indicating where the user can replace the image with their own URL.",
       "files": [
-        "frontend/src/components/pages/Page4ForgivePrompt.tsx"
+        "frontend/src/components/pages/Page3Apology.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-page-4-must-display-the-text-exactly-are-u-willing-to-forgive-me-bab-with-two-buttons-labeled-exactly-yes-and-no-the-no-button-must-evade-interaction-by-moving-away-smoothly-and-randomly-when-the-user-attempts-to-click-tap-hover-it-remaining-within-the-visible-container",
+      "featureTitle": "Page 4 must display the text exactly \"Are u willing to forgive me bab ❤️\" with two buttons labeled exactly \"Yes 🌹\" and \"No 🥀\". The \"No 🥀\" button must evade interaction by moving away smoothly and randomly when the user attempts to click/tap/hover it, remaining within the visible container.",
+      "files": [
+        "frontend/src/components/pages/Page4ForgivePrompt.tsx",
+        "frontend/src/index.css"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -38,10 +117,12 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-make-the-page-4-no-button-playfully-evade-interaction-by-shifting-position-when-hovered-mouse-or-touched-touch-devices-so-it-cannot-be-clicked-easily-while-still-remaining-visible-on-screen",
-      "featureTitle": "Make the Page 4 \"No 🥀\" button playfully evade interaction by shifting position when hovered (mouse) or touched (touch devices), so it cannot be clicked easily while still remaining visible on screen.",
+      "featureId": "feature-when-yes-is-clicked-on-page-4-show-the-final-message-exactly-awwwwweehh-lvb-u-bab-and-render-heart-animations-e-g-floating-hearts-bursting-over-the-page-in-a-lightweight-mobile-friendly-way",
+      "featureTitle": "When \"Yes 🌹\" is clicked on Page 4, show the final message exactly \"Awwwwweehh! Lvb u bab 💋\" and render heart animations (e.g., floating/hearts bursting) over the page in a lightweight, mobile-friendly way.",
       "files": [
-        "frontend/src/components/pages/Page4ForgivePrompt.tsx"
+        "frontend/src/components/FloatingHeartsBackground.tsx",
+        "frontend/src/components/pages/Page4ForgivePrompt.tsx",
+        "frontend/src/index.css"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -56,9 +137,12 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-enforce-the-image-sourcing-rule-the-app-must-not-include-any-stock-external-images-the-page-5-hugging-gif-must-be-created-derived-solely-from-the-user-uploaded-image-file-8cea9dbe688448677b472a8d5e73118d-10-jpg-and-stored-as-a-static-frontend-asset-under-frontend-public-assets-generated-then-referenced-directly-from-the-frontend",
-      "featureTitle": "Enforce the image sourcing rule: the app must not include any stock/external images. The Page 5 hugging GIF must be created/derived solely from the user-uploaded image file (8cea9dbe688448677b472a8d5e73118d-10.jpg) and stored as a static frontend asset under frontend/public/assets/generated, then referenced directly from the frontend.",
-      "files": [],
+      "featureId": "feature-use-only-the-user-uploaded-images-6de4a0ed8a66079b44f32ddcb86801a1-7-jpg-snapchat-44209910-7-jpg-8cea9dbe688448677b472a8d5e73118d-11-jpg-as-default-imagery-for-page-2-and-page-3-image-areas-stored-and-referenced-as-static-frontend-assets-do-not-introduce-stock-external-images",
+      "featureTitle": "Use only the user-uploaded images (6de4a0ed8a66079b44f32ddcb86801a1-7.jpg, Snapchat-44209910-7.jpg, 8cea9dbe688448677b472a8d5e73118d-11.jpg) as default imagery for Page 2 and Page 3 image areas, stored and referenced as static frontend assets. Do not introduce stock/external images.",
+      "files": [
+        "frontend/src/components/pages/Page2Hold.tsx",
+        "frontend/src/components/pages/Page3Apology.tsx"
+      ],
       "components": [
         "core-infrastructure@1.0.2",
         "shadcn-ui@1.0.0",
@@ -67,7 +151,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-9"
+        "REQ-8"
       ],
       "confidence": "high"
     }

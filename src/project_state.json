@@ -1,43 +1,78 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Build a 5-page interactive romantic apology website using dark theme #20201F with accent #EE6E4D, serif romantic typography, rounded buttons, and smooth page transitions; includes playful evasive 'No' button and a final-page user-provided hugging-couple GIF.",
+  "summary": "Build a single-page interactive dark-themed 'Sorry' website with 4 smoothly transitioning sections and a playful forgiveness interaction.",
   "architectural_notes": [
-    "Do not use stock/external images; only user-uploaded media may be displayed (e.g., final GIF)."
+    "Single-page app structure: 4 full-screen sections with smooth transitions controlled by 'Next' buttons (HTML/CSS/JS only).",
+    "Include image placeholders (one grayscale/B&W) with clear code comments where user can insert image URLs.",
+    "Interactive logic: evasive 'No' button moves randomly on hover/attempted click; 'Yes' triggers final message + heart animations.",
+    "Responsive dark theme styling with elegant fonts (e.g., Playfair Display/Poppins)."
   ],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Animated GIF of a cute cartoon couple hugging, matching the uploaded drawing style (hugging-couple.dim_600x600.gif)",
+  "imageRequirements": "## Edit Images\n- Convert to grayscale with gentle contrast suitable for a dark UI (Snapchat-44209910-7.jpg > page2-grayscale.dim_800x1200.jpg)",
   "existing_features": [
     {
-      "id": "feature-page-2-must-display-centered-text-exactly-i-want-to-hold-u-every-time-and-a-clearly-visible-next-button-at-the-bottom-center-of-the-viewport",
-      "title": "Page 2 must display centered text exactly: \"I want to hold u every time 🫠\" and a clearly visible “Next” button at the bottom center of the viewport.",
+      "id": "feature-update-the-single-page-flow-to-have-exactly-4-distinct-sections-that-transition-smoothly-in-this-order-page-1-page-2-page-3-page-4-pages-1-3-must-advance-via-a-clearly-visible-next-button-and-page-4-must-not-navigate-away-instead-it-must-show-the-final-yes-outcome-content-in-place-after-clicking-yes",
+      "title": "Update the single-page flow to have exactly 4 distinct sections that transition smoothly in this order: Page 1 -> Page 2 -> Page 3 -> Page 4. Pages 1–3 must advance via a clearly visible “Next” button, and Page 4 must not navigate away; instead it must show the final “Yes” outcome content in-place after clicking “Yes 🌹”.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-visual-design-matches-a-clean-aesthetic-dark-theme-black-deep-grey-with-elegant-typography-playfair-display-or-poppins-applied-consistently-across-all-sections-while-keeping-the-layout-responsive-for-mobile",
+      "title": "Ensure the visual design matches a clean, aesthetic dark theme (black/deep grey) with elegant typography (Playfair Display or Poppins) applied consistently across all sections, while keeping the layout responsive for mobile.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-page-1-must-display-the-centered-text-exactly-i-m-really-sorry-chlow-and-a-next-button-positioned-at-the-bottom-of-the-viewport",
+      "title": "Page 1 must display the centered text exactly \"I'm really sorry chlow! 🤌🏻\" and a “Next” button positioned at the bottom of the viewport.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-page-2-must-display-the-text-exactly-i-want-to-hold-u-everytime-and-render-a-black-and-white-grayscale-image-area-beneath-it-include-a-clear-code-comment-indicating-where-the-user-can-replace-the-image-with-their-own-url",
+      "title": "Page 2 must display the text exactly \"I want to hold u everytime 🫠\" and render a black-and-white (grayscale) image area beneath it. Include a clear code comment indicating where the user can replace the image with their own URL.",
       "reqIds": [
         "REQ-4"
       ],
       "version": 1
     },
     {
-      "id": "feature-page-4-must-display-centered-text-exactly-are-you-willing-to-forgive-me-bab-and-two-buttons-below-it-labeled-exactly-yes-and-no-clicking-yes-must-navigate-to-page-5",
-      "title": "Page 4 must display centered text exactly: \"Are you willing to forgive me, bab? ❤️\" and two buttons below it labeled exactly \"Yes 🌹\" and \"No 🥀\". Clicking \"Yes 🌹\" must navigate to Page 5.",
+      "id": "feature-page-3-must-display-a-heartfelt-apology-love-message-as-a-long-paragraph-placeholder-and-show-another-image-placeholder-for-a-user-uploaded-photo-include-a-clear-code-comment-indicating-where-the-user-can-replace-the-image-with-their-own-url",
+      "title": "Page 3 must display a heartfelt \"Apology Love Message\" as a long paragraph placeholder and show another image placeholder for a user-uploaded photo. Include a clear code comment indicating where the user can replace the image with their own URL.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-page-4-must-display-the-text-exactly-are-u-willing-to-forgive-me-bab-with-two-buttons-labeled-exactly-yes-and-no-the-no-button-must-evade-interaction-by-moving-away-smoothly-and-randomly-when-the-user-attempts-to-click-tap-hover-it-remaining-within-the-visible-container",
+      "title": "Page 4 must display the text exactly \"Are u willing to forgive me bab ❤️\" with two buttons labeled exactly \"Yes 🌹\" and \"No 🥀\". The \"No 🥀\" button must evade interaction by moving away smoothly and randomly when the user attempts to click/tap/hover it, remaining within the visible container.",
       "reqIds": [
         "REQ-6"
       ],
       "version": 1
     },
     {
-      "id": "feature-make-the-page-4-no-button-playfully-evade-interaction-by-shifting-position-when-hovered-mouse-or-touched-touch-devices-so-it-cannot-be-clicked-easily-while-still-remaining-visible-on-screen",
-      "title": "Make the Page 4 \"No 🥀\" button playfully evade interaction by shifting position when hovered (mouse) or touched (touch devices), so it cannot be clicked easily while still remaining visible on screen.",
+      "id": "feature-when-yes-is-clicked-on-page-4-show-the-final-message-exactly-awwwwweehh-lvb-u-bab-and-render-heart-animations-e-g-floating-hearts-bursting-over-the-page-in-a-lightweight-mobile-friendly-way",
+      "title": "When \"Yes 🌹\" is clicked on Page 4, show the final message exactly \"Awwwwweehh! Lvb u bab 💋\" and render heart animations (e.g., floating/hearts bursting) over the page in a lightweight, mobile-friendly way.",
       "reqIds": [
         "REQ-7"
       ],
       "version": 1
     },
     {
-      "id": "feature-enforce-the-image-sourcing-rule-the-app-must-not-include-any-stock-external-images-the-page-5-hugging-gif-must-be-created-derived-solely-from-the-user-uploaded-image-file-8cea9dbe688448677b472a8d5e73118d-10-jpg-and-stored-as-a-static-frontend-asset-under-frontend-public-assets-generated-then-referenced-directly-from-the-frontend",
-      "title": "Enforce the image sourcing rule: the app must not include any stock/external images. The Page 5 hugging GIF must be created/derived solely from the user-uploaded image file (8cea9dbe688448677b472a8d5e73118d-10.jpg) and stored as a static frontend asset under frontend/public/assets/generated, then referenced directly from the frontend.",
+      "id": "feature-use-only-the-user-uploaded-images-6de4a0ed8a66079b44f32ddcb86801a1-7-jpg-snapchat-44209910-7-jpg-8cea9dbe688448677b472a8d5e73118d-11-jpg-as-default-imagery-for-page-2-and-page-3-image-areas-stored-and-referenced-as-static-frontend-assets-do-not-introduce-stock-external-images",
+      "title": "Use only the user-uploaded images (6de4a0ed8a66079b44f32ddcb86801a1-7.jpg, Snapchat-44209910-7.jpg, 8cea9dbe688448677b472a8d5e73118d-11.jpg) as default imagery for Page 2 and Page 3 image areas, stored and referenced as static frontend assets. Do not introduce stock/external images.",
       "reqIds": [
-        "REQ-9"
+        "REQ-8"
       ],
       "version": 1
     }
@@ -45,71 +80,13 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Create 5-page interactive romantic website with specified texts and navigation (Next buttons on pages 1–4; final page after Yes)",
+      "summary": "Create single-page interactive 'Sorry' website with 4 smooth-transition sections, image placeholders, evasive 'No' button, and heart animation on 'Yes' (responsive; HTML/CSS/JS; dark aesthetic fonts).",
       "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-2",
-      "summary": "Apply minimal aesthetic theme: dark background #20201F, accent #EE6E4D, clean serif romantic font, rounded buttons, smooth transitions",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-3",
-      "summary": "Page 4 forgiveness interaction: Yes button navigates forward; No button playfully moves on hover/touch to avoid clicks",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-4",
-      "summary": "Final page displays center text and a cute cartoon couple hugging GIF sourced only from user-uploaded input (no stock images)",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-5",
-      "summary": "Ensure the app presents a 5-page interactive flow with smooth animated transitions between pages in this exact order: Page 1 -> Page 2 -> Page 3 -> Page 4 -> Page 5. Pages 1–3 must each navigate via a visible “Next” button; Page 4 must navigate to Page 5 only via clicking “Yes 🌹”.",
-      "reqIds": [
-        "REQ-1"
-      ],
-      "status": "pending"
-    },
-    {
-      "id": "AR-6",
-      "summary": "Set the site’s visual theme consistently across all pages: background color #20201F, accent color #EE6E4D, and a clean serif romantic font for all text. Buttons must be soft-rounded and use the accent color for fill with dark text.",
-      "reqIds": [
-        "REQ-2"
-      ],
-      "status": "pending"
-    },
-    {
-      "id": "AR-7",
-      "summary": "Page 1 must display centered text exactly: \"I'm really sorry chlow! 🤌🏻\" and a clearly visible “Next” button fixed/positioned at the bottom center of the viewport (not merely below the text).",
-      "reqIds": [
-        "REQ-3"
-      ],
-      "status": "pending"
-    },
-    {
-      "id": "AR-9",
-      "summary": "Page 3 must show a short, heartfelt, romantic apology message (keep it concise), and a clearly visible “Next” button at the bottom center of the viewport.",
-      "reqIds": [
-        "REQ-5"
-      ],
-      "status": "pending"
-    },
-    {
-      "id": "AR-12",
-      "summary": "Page 5 must display centered text exactly: \"Awwwwweehh! Lvb u bab 💋\" and show exactly one cute cartoon couple-hugging GIF centered beneath the text. Page 5 must not show any “Next” button.",
-      "reqIds": [
-        "REQ-8"
-      ],
       "status": "pending"
     }
   ],
   "gameProjectType": "none",
-  "projectName": "Refine 5-page romantic apology flow (exact copy, bottom Next buttons, correct Yes/No labels, and uploaded-image-based hugging GIF)",
+  "projectName": "Refine dark-themed 4-section interactive apology site (images + heart animation + evasive No)",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

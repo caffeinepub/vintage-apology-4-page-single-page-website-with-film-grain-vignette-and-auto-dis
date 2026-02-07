@@ -4,30 +4,32 @@
 
 @layer base {
     :root {
-        /* Fixed color scheme: #20201F background, #EE6E4D cards/buttons */
-        --deep-dark: 12.5% 0.01 30;
-        --warm-orange: 65% 0.18 35;
+        /* Dark theme: Black/Deep Grey with elegant accents */
+        --deep-black: 10% 0.005 280;
+        --deep-grey: 18% 0.01 280;
+        --soft-white: 95% 0.01 280;
+        --elegant-rose: 70% 0.15 15;
         
         --radius: 0.5rem;
-        --background: var(--deep-dark);
-        --foreground: var(--warm-orange);
-        --card: var(--warm-orange);
-        --card-foreground: var(--deep-dark);
-        --popover: var(--warm-orange);
-        --popover-foreground: var(--deep-dark);
-        --primary: var(--warm-orange);
-        --primary-foreground: var(--deep-dark);
-        --secondary: var(--deep-dark);
-        --secondary-foreground: var(--warm-orange);
-        --muted: 50% 0.05 30;
-        --muted-foreground: 60% 0.08 35;
-        --accent: var(--warm-orange);
-        --accent-foreground: var(--deep-dark);
-        --destructive: 0.577 0.245 27.325;
-        --destructive-foreground: var(--warm-orange);
-        --border: var(--warm-orange);
-        --input: var(--warm-orange);
-        --ring: var(--warm-orange);
+        --background: var(--deep-black);
+        --foreground: var(--soft-white);
+        --card: var(--deep-grey);
+        --card-foreground: var(--soft-white);
+        --popover: var(--deep-grey);
+        --popover-foreground: var(--soft-white);
+        --primary: var(--elegant-rose);
+        --primary-foreground: var(--soft-white);
+        --secondary: var(--deep-grey);
+        --secondary-foreground: var(--soft-white);
+        --muted: 30% 0.02 280;
+        --muted-foreground: 60% 0.03 280;
+        --accent: var(--elegant-rose);
+        --accent-foreground: var(--soft-white);
+        --destructive: 55% 0.22 25;
+        --destructive-foreground: var(--soft-white);
+        --border: 25% 0.02 280;
+        --input: 25% 0.02 280;
+        --ring: var(--elegant-rose);
     }
 
     * {
@@ -35,9 +37,9 @@
     }
     
     body {
-        background-color: #20201F;
-        color: #EE6E4D;
-        font-family: 'Playfair Display', 'Georgia', 'Lora', serif;
+        background-color: #0a0a0a;
+        color: #f5f5f5;
+        font-family: 'Poppins', 'Inter', sans-serif;
         margin: 0;
         padding: 0;
         overflow-x: hidden;
@@ -77,36 +79,43 @@
 
 /* Text styling */
 .romantic-text {
-    font-family: 'Playfair Display', 'Georgia', 'Lora', serif;
-    color: #EE6E4D;
+    font-family: 'Playfair Display', 'Georgia', serif;
+    color: #f5f5f5;
     line-height: 1.6;
     text-align: center;
 }
 
+.body-text {
+    font-family: 'Poppins', 'Inter', sans-serif;
+    color: #e0e0e0;
+    line-height: 1.8;
+}
+
 /* Apology button styling */
 .apology-button {
-    background-color: #EE6E4D;
-    color: #20201F;
+    background: linear-gradient(135deg, #d4a574 0%, #c89b6d 100%);
+    color: #0a0a0a;
     border: none;
     padding: 1rem 2.5rem;
     font-size: 1.25rem;
     font-weight: 600;
-    font-family: 'Playfair Display', 'Georgia', 'Lora', serif;
-    border-radius: 16px;
+    font-family: 'Poppins', 'Inter', sans-serif;
+    border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 16px rgba(238, 110, 77, 0.3);
+    box-shadow: 0 4px 16px rgba(212, 165, 116, 0.3);
     text-align: center;
 }
 
 .apology-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(238, 110, 77, 0.4);
+    box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
+    background: linear-gradient(135deg, #e0b585 0%, #d4a574 100%);
 }
 
 .apology-button:active {
     transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(238, 110, 77, 0.3);
+    box-shadow: 0 2px 8px rgba(212, 165, 116, 0.3);
 }
 
 .bottom-button {
@@ -117,17 +126,72 @@
     position: relative;
 }
 
-/* Final GIF container */
-.final-gif-container {
+/* Image styling */
+.apology-image {
+    max-width: 100%;
     width: 100%;
-    max-width: 600px;
+    max-height: 500px;
+    object-fit: cover;
     border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 8px 24px rgba(238, 110, 77, 0.25);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
-.final-gif {
+.grayscale-image {
+    filter: grayscale(100%);
+}
+
+.image-container {
     width: 100%;
-    height: auto;
-    display: block;
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+/* Heart animations */
+@keyframes float-up {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(-10px) scale(1);
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100vh) scale(0.5);
+    }
+}
+
+@keyframes pulse-heart {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.floating-heart {
+    position: fixed;
+    font-size: 2rem;
+    pointer-events: none;
+    z-index: 50;
+    animation: float-up 4s ease-in forwards;
+}
+
+.hearts-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 40;
+}
+
+.final-message {
+    animation: pulse-heart 2s ease-in-out infinite;
 }

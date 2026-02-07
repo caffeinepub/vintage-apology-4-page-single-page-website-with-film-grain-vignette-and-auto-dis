@@ -1,192 +1,183 @@
 {
   "kind": "build_request",
-  "title": "Refine 5-page romantic apology flow (exact copy, bottom Next buttons, correct Yes/No labels, and uploaded-image-based hugging GIF)",
+  "title": "Refine dark-themed 4-section interactive apology site (images + heart animation + evasive No)",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Ensure the app presents a 5-page interactive flow with smooth animated transitions between pages in this exact order: Page 1 -> Page 2 -> Page 3 -> Page 4 -> Page 5. Pages 1–3 must each navigate via a visible “Next” button; Page 4 must navigate to Page 5 only via clicking “Yes 🌹”.",
+      "text": "Update the single-page flow to have exactly 4 distinct sections that transition smoothly in this order: Page 1 -> Page 2 -> Page 3 -> Page 4. Pages 1–3 must advance via a clearly visible “Next” button, and Page 4 must not navigate away; instead it must show the final “Yes” outcome content in-place after clicking “Yes 🌹”.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-1"
+          "msg-4"
         ],
         "quotes": [
-          "Create a 5-page interactive romantic website... Keep soft rounded buttons and smooth transitions between pages."
+          "The website should have 4 distinct sections (pages) that transition smoothly.",
+          "If \"Yes\" is clicked, show a final message: \"Awwwwweehh! Lvb u bab 💋\" with some heart animations."
         ]
       },
       "acceptanceCriteria": [
-        "Starting at initial load, Page 1 is shown.",
-        "Clicking “Next” on Pages 1, 2, and 3 advances to the next page.",
-        "Clicking “Yes 🌹” on Page 4 advances to Page 5.",
-        "Transitions between pages animate smoothly (no abrupt content swap)."
+        "There are exactly 4 sections in the rendered experience (no extra final page/route/state).",
+        "Transitions between sections are smooth and animated for each page change.",
+        "Page 1, Page 2, Page 3 each have a working “Next” button that advances to the next section.",
+        "Clicking “Yes 🌹” on Page 4 reveals the final message state within Page 4 (no navigation to a separate Page 5)."
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Set the site’s visual theme consistently across all pages: background color #20201F, accent color #EE6E4D, and a clean serif romantic font for all text. Buttons must be soft-rounded and use the accent color for fill with dark text.",
+      "text": "Ensure the visual design matches a clean, aesthetic dark theme (black/deep grey) with elegant typography (Playfair Display or Poppins) applied consistently across all sections, while keeping the layout responsive for mobile.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-1"
+          "msg-4"
         ],
         "quotes": [
-          "Create a 5-page interactive romantic website with the color theme #20201F (dark background) and #EE6E4D (accent). Use a clean, decent serif-style romantic font for all text. Keep soft rounded buttons..."
+          "Use a clean, aesthetic design with a dark theme (Black/Deep Grey) and elegant fonts (like Playfair Display or Poppins).",
+          "Keep it responsive for mobile."
         ]
       },
       "acceptanceCriteria": [
-        "All pages use #20201F as the primary background.",
-        "Primary interactive elements (buttons) use #EE6E4D as the accent color.",
-        "All text uses the configured serif font (no default sans-serif appearing on any page).",
-        "Buttons have a clearly rounded shape and hover/press transitions."
+        "Background across all sections uses black/deep grey tones (no bright/light page backgrounds).",
+        "Typography uses Playfair Display and/or Poppins consistently for headings/body/buttons.",
+        "All sections render well on small screens (no horizontal scrolling; text/buttons remain visible and tappable)."
       ]
     },
     {
       "id": "REQ-3",
-      "text": "Page 1 must display centered text exactly: \"I'm really sorry chlow! 🤌🏻\" and a clearly visible “Next” button fixed/positioned at the bottom center of the viewport (not merely below the text).",
+      "text": "Page 1 must display the centered text exactly \"I'm really sorry chlow! 🤌🏻\" and a “Next” button positioned at the bottom of the viewport.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-1"
+          "msg-4"
         ],
         "quotes": [
-          "PAGE 1:\nCenter text: \"I'm really sorry chlow! 🤌🏻\"\nShow a clearly visible \"Next\" button at the bottom center."
+          "Page 1: ... Text: \"I'm really sorry chlow! 🤌🏻\" (Centered, decent font).",
+          "A \"Next\" button at the bottom."
         ]
       },
       "acceptanceCriteria": [
-        "Page 1 headline matches the text exactly including punctuation and emoji.",
-        "The “Next” button is visible without scrolling and is bottom-centered relative to the viewport.",
-        "Clicking “Next” navigates to Page 2."
+        "Page 1 shows the exact text string, centered.",
+        "A single “Next” button is visible at the bottom area of the screen without needing to scroll."
       ]
     },
     {
       "id": "REQ-4",
-      "text": "Page 2 must display centered text exactly: \"I want to hold u every time 🫠\" and a clearly visible “Next” button at the bottom center of the viewport.",
+      "text": "Page 2 must display the text exactly \"I want to hold u everytime 🫠\" and render a black-and-white (grayscale) image area beneath it. Include a clear code comment indicating where the user can replace the image with their own URL.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-1"
+          "msg-4"
         ],
         "quotes": [
-          "PAGE 2:\nCenter text: \"I want to hold u every time 🫠\"\nShow a \"Next\" button at the bottom center."
+          "Page 2:\n\u000bText: \"I want to hold u everytime 🫠\"\n\u000bImage Placeholder: Show a B&W (grayscale) image placeholder. (Add a comment in code where I can put my image URL)."
         ]
       },
       "acceptanceCriteria": [
-        "Page 2 headline matches the text exactly (including the spacing in “every time” and the emoji).",
-        "The “Next” button is visible without scrolling and is bottom-centered relative to the viewport.",
-        "Clicking “Next” navigates to Page 3."
+        "Page 2 shows the exact text string (including spelling \"everytime\").",
+        "A grayscale image (or grayscale-styled placeholder image area) is visible on Page 2.",
+        "The Page 2 component contains an explicit code comment showing where to paste/replace the image URL.",
+        "A “Next” button is present and advances to Page 3."
       ]
     },
     {
       "id": "REQ-5",
-      "text": "Page 3 must show a short, heartfelt, romantic apology message (keep it concise), and a clearly visible “Next” button at the bottom center of the viewport.",
+      "text": "Page 3 must display a heartfelt \"Apology Love Message\" as a long paragraph placeholder and show another image placeholder for a user-uploaded photo. Include a clear code comment indicating where the user can replace the image with their own URL.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-1"
+          "msg-4"
         ],
         "quotes": [
-          "PAGE 3:\nShow a heartfelt apology message in a short, romantic style (you can generate a soft apology line).\nShow a \"Next\" button at the bottom center."
+          "Page 3:\n\u000bContent: A heartfelt \"Apology Love Message\" (use a long paragraph placeholder).\n\u000bImage Placeholder: Another user-uploaded photo placeholder.\n\u000bA \"Next\" button."
         ]
       },
       "acceptanceCriteria": [
-        "Page 3 displays a single short apology line/paragraph in a romantic tone.",
-        "No images are displayed on Page 3.",
-        "The “Next” button is visible without scrolling and is bottom-centered relative to the viewport.",
-        "Clicking “Next” navigates to Page 4."
+        "Page 3 shows a noticeably long paragraph (multi-sentence placeholder) as the apology message.",
+        "An image area/placeholder is displayed on Page 3.",
+        "The Page 3 component contains an explicit code comment showing where to paste/replace the image URL.",
+        "A “Next” button is present and advances to Page 4."
       ]
     },
     {
       "id": "REQ-6",
-      "text": "Page 4 must display centered text exactly: \"Are you willing to forgive me, bab? ❤️\" and two buttons below it labeled exactly \"Yes 🌹\" and \"No 🥀\". Clicking \"Yes 🌹\" must navigate to Page 5.",
+      "text": "Page 4 must display the text exactly \"Are u willing to forgive me bab ❤️\" with two buttons labeled exactly \"Yes 🌹\" and \"No 🥀\". The \"No 🥀\" button must evade interaction by moving away smoothly and randomly when the user attempts to click/tap/hover it, remaining within the visible container.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-1"
+          "msg-4"
         ],
         "quotes": [
-          "PAGE 4:\nCenter text: \"Are you willing to forgive me, bab? ❤️\"\nBelow the text show two buttons: \"Yes 🌹\" and \"No 🥀\".\n...The \"Yes 🌹\" button should be clickable and go to the next page."
+          "Page 4 (The Interaction):\n\u000bText: \"Are u willing to forgive me bab ❤️\"\n\u000bButtons:\n\u000b\"Yes 🌹\" button.\n\u000b\"No 🥀\" button.\n\u000bLogic: If the user tries to click \"No\", the button should move away randomly (evasive button) so he can't click it.\n\u000b... Ensure the \"No\" button logic is smooth and fun."
         ]
       },
       "acceptanceCriteria": [
-        "The Page 4 prompt text matches exactly including emoji.",
-        "Two buttons are present with labels exactly “Yes 🌹” and “No 🥀” (case-sensitive).",
-        "Clicking “Yes 🌹” navigates to Page 5."
+        "Page 4 shows the exact prompt text string (including \"Are u\" not \"Are you\").",
+        "Buttons are labeled exactly \"Yes 🌹\" and \"No 🥀\".",
+        "Attempting to hover/tap/click the \"No 🥀\" button causes it to move to a new random position with a smooth animation.",
+        "The \"No 🥀\" button stays on-screen/inside its container and remains visibly reachable (even if hard to click)."
       ]
     },
     {
       "id": "REQ-7",
-      "text": "Make the Page 4 \"No 🥀\" button playfully evade interaction by shifting position when hovered (mouse) or touched (touch devices), so it cannot be clicked easily while still remaining visible on screen.",
+      "text": "When \"Yes 🌹\" is clicked on Page 4, show the final message exactly \"Awwwwweehh! Lvb u bab 💋\" and render heart animations (e.g., floating/hearts bursting) over the page in a lightweight, mobile-friendly way.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-1"
+          "msg-4"
         ],
         "quotes": [
-          "The \"No 🥀\" button should playfully move/shift position when touched or hovered so it cannot be clicked easily."
+          "If \"Yes\" is clicked, show a final message: \"Awwwwweehh! Lvb u bab 💋\" with some heart animations."
         ]
       },
       "acceptanceCriteria": [
-        "On mouse hover, the “No 🥀” button changes position (at least a noticeable shift).",
-        "On touch start, the “No 🥀” button changes position.",
-        "Attempting to click “No 🥀” does not reliably trigger a click action due to evasive movement.",
-        "The button remains visible and does not permanently move off-screen."
+        "Clicking \"Yes 🌹\" reveals the final message with the exact text string.",
+        "Hearts animate on screen after clicking \"Yes 🌹\" and do not significantly degrade performance on mobile.",
+        "The hearts animation layer does not block the user from reading the final message."
       ]
     },
     {
       "id": "REQ-8",
-      "text": "Page 5 must display centered text exactly: \"Awwwwweehh! Lvb u bab 💋\" and show exactly one cute cartoon couple-hugging GIF centered beneath the text. Page 5 must not show any “Next” button.",
+      "text": "Use only the user-uploaded images (6de4a0ed8a66079b44f32ddcb86801a1-7.jpg, Snapchat-44209910-7.jpg, 8cea9dbe688448677b472a8d5e73118d-11.jpg) as default imagery for Page 2 and Page 3 image areas, stored and referenced as static frontend assets. Do not introduce stock/external images.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-1"
+          "msg-4"
         ],
         "quotes": [
-          "PAGE 5 (after clicking Yes):\nCenter text: \"Awwwwweehh! Lvb u bab 💋\"\nShow a cute cartoon couple hugging GIF in the center.\n\nEnsure:\n- Every page must have a visible \"Next\" button except the final page."
+          "The user has uploaded 3 image(s): 6de4a0ed8a66079b44f32ddcb86801a1-7.jpg, Snapchat-44209910-7.jpg, 8cea9dbe688448677b472a8d5e73118d-11.jpg."
         ]
       },
       "acceptanceCriteria": [
-        "The Page 5 headline matches exactly including emoji.",
-        "Exactly one GIF is displayed on Page 5, centered beneath the headline.",
-        "No “Next” button appears on Page 5."
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "text": "Enforce the image sourcing rule: the app must not include any stock/external images. The Page 5 hugging GIF must be created/derived solely from the user-uploaded image file (8cea9dbe688448677b472a8d5e73118d-10.jpg) and stored as a static frontend asset under frontend/public/assets/generated, then referenced directly from the frontend.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-user-1"
-        ],
-        "quotes": [
-          "Ensure:\n- Images should ONLY be taken from user-uploaded input (no stock images).",
-          "The user has uploaded 1 image(s): 8cea9dbe688448677b472a8d5e73118d-10.jpg."
-        ]
-      },
-      "acceptanceCriteria": [
-        "No external image URLs are used anywhere in the codebase for this site experience.",
-        "No images are displayed on Pages 1–4.",
-        "A single GIF file exists under frontend/public/assets/generated and is used on Page 5.",
-        "The GIF’s content is derived from the uploaded image (not replaced by unrelated artwork)."
+        "Page 2 and Page 3 show default images sourced from the uploaded files (no remote URLs by default).",
+        "No new stock/external images are added to the project."
       ]
     }
   ],
   "constraints": [
-    "Frontend files under frontend/src/components/ui and frontend/src/hooks/useInternetIdentity.ts(x), frontend/src/hooks/useActor.ts, and frontend/src/main.tsx are immutable and must not be edited.",
-    "Backend must remain single-actor in backend/main.mo; do not introduce additional canisters/services.",
-    "Do not add stock/external images; only use/derive visuals from the provided upload (8cea9dbe688448677b472a8d5e73118d-10.jpg)."
+    "Frontend immutable paths must not be edited: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
+    "Backend must remain a single Motoko actor in backend/main.mo (no extra canisters/services).",
+    "User-facing text in the app must remain in English and must match the exact strings provided for each page.",
+    "Do not add stock/external images; default visuals must use only the user-uploaded images provided in the request."
   ],
   "nonGoals": [
-    "Add authentication or Internet Identity flows.",
-    "Add backend storage, APIs, or persistence for this experience.",
-    "Add additional pages beyond the specified 5.",
-    "Add background music, video, or external embeds."
+    "Adding authentication, user accounts, or backend persistence.",
+    "Adding more than 4 sections/pages to the interactive flow.",
+    "Integrating third-party animation libraries or external image/CDN dependencies solely for the hearts effect."
   ],
   "imageRequirements": {
-    "required": [
-      "Animated GIF of a cute cartoon couple hugging, matching the uploaded drawing style (hugging-couple.dim_600x600.gif)"
-    ],
-    "edits": []
+    "required": [],
+    "edits": [
+      "Convert to grayscale with gentle contrast suitable for a dark UI (Snapchat-44209910-7.jpg > page2-grayscale.dim_800x1200.jpg)"
+    ]
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }
