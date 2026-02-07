@@ -117,30 +117,6 @@
     position: relative;
 }
 
-/* Uploaded image container */
-.uploaded-image-container {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 8px 24px rgba(238, 110, 77, 0.25);
-}
-
-.uploaded-image {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Apology message container */
-.apology-message-container {
-    max-width: 700px;
-    padding: 2rem;
-    background-color: rgba(238, 110, 77, 0.1);
-    border-radius: 16px;
-    border: 2px solid rgba(238, 110, 77, 0.3);
-}
-
 /* Final GIF container */
 .final-gif-container {
     width: 100%;

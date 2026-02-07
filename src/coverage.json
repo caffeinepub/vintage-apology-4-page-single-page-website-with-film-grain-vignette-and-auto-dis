@@ -1,135 +1,120 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-07T12:14:42.509Z",
+  "generatedAt": "2026-02-07T13:09:04.745Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 6,
-    "implemented": 6,
+    "total": 9,
+    "implemented": 4,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Update the page flow to exactly 5 pages with smooth transitions between pages, matching the user-specified navigation rules: Page 1 shows a visible “Next” button (no auto-advance), Pages 1–4 each have a visible “Next” button (Page 4 advances only via “Yes 🌹”), and Page 5 has no Next button.",
-        "status": "implemented",
+        "summary": "Ensure the app presents a 5-page interactive flow with smooth animated transitions between pages in this exact order: Page 1 -> Page 2 -> Page 3 -> Page 4 -> Page 5. Pages 1–3 must each navigate via a visible “Next” button; Page 4 must navigate to Page 5 only via clicking “Yes 🌹”.",
+        "status": "missing",
         "plannedFiles": [
           "frontend/src/components/ValentineFlow.tsx",
-          "frontend/src/components/pages/Page5Final.tsx",
-          "frontend/src/components/pages/Page3Apology.tsx",
-          "frontend/src/components/pages/Page3Forgive.tsx"
+          "frontend/src/components/StageTransition.tsx"
         ],
-        "matchedFiles": [
-          "frontend/src/components/ValentineFlow.tsx",
-          "frontend/src/components/pages/Page5Final.tsx",
-          "frontend/src/components/pages/Page3Apology.tsx",
-          "frontend/src/components/pages/Page3Forgive.tsx"
-        ]
+        "matchedFiles": []
       },
       {
         "id": "REQ-2",
-        "summary": "Implement the exact required text content and page layouts:\n- Page 1: centered text exactly “I'm really sorry chlow! 🤌🏻” and a clearly visible Next button bottom-center; no image.\n- Page 2: centered text exactly “I want to hold u every time 🫠”, display at least one user-uploaded image below the text, and a Next button bottom-center.\n- Page 3: display a short heartfelt apology message in a soft romantic tone, display at least one user-uploaded image below the message, and a Next button bottom-center.\n- Page 4: centered text exactly “Are you willing to forgive me, bab? ❤️” and two buttons “Yes 🌹” and “No 🥀”.\n- Page 5: centered text exactly “Awwwwweehh! Lvb u bab 💋” and a cute cartoon couple hugging GIF centered.",
-        "status": "implemented",
+        "summary": "Set the site’s visual theme consistently across all pages: background color #20201F, accent color #EE6E4D, and a clean serif romantic font for all text. Buttons must be soft-rounded and use the accent color for fill with dark text.",
+        "status": "missing",
         "plannedFiles": [
-          "frontend/src/components/pages/Page1Splash.tsx",
-          "frontend/src/components/pages/Page2Hold.tsx",
-          "frontend/src/components/pages/Page3Apology.tsx",
-          "frontend/src/components/pages/Page4ForgivePrompt.tsx",
-          "frontend/src/components/pages/Page4Hug.tsx",
-          "frontend/src/components/pages/Page5Final.tsx"
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
         ],
-        "matchedFiles": [
-          "frontend/src/components/pages/Page1Splash.tsx",
-          "frontend/src/components/pages/Page2Hold.tsx",
-          "frontend/src/components/pages/Page3Apology.tsx",
-          "frontend/src/components/pages/Page4ForgivePrompt.tsx",
-          "frontend/src/components/pages/Page4Hug.tsx",
-          "frontend/src/components/pages/Page5Final.tsx"
-        ]
+        "matchedFiles": []
       },
       {
         "id": "REQ-3",
-        "summary": "Ensure the user-uploaded images are used (and only user-uploaded images are used) wherever images are required: Page 2 and Page 3 MUST each display at least one of the uploaded image files: `6de4a0ed8a66079b44f32ddcb86801a1-5.jpg`, `Snapchat-44209910-5.jpg`, `8cea9dbe688448677b472a8d5e73118d-5.jpg`, `8cea9dbe688448677b472a8d5e73118d-6.jpg`. Do not use stock images or placeholders for those pages.",
-        "status": "implemented",
+        "summary": "Page 1 must display centered text exactly: \"I'm really sorry chlow! 🤌🏻\" and a clearly visible “Next” button fixed/positioned at the bottom center of the viewport (not merely below the text).",
+        "status": "missing",
         "plannedFiles": [
-          "frontend/public/assets/uploaded/6de4a0ed8a66079b44f32ddcb86801a1-5.jpg",
-          "frontend/public/assets/uploaded/Snapchat-44209910-5.jpg",
-          "frontend/public/assets/uploaded/8cea9dbe688448677b472a8d5e73118d-5.jpg",
-          "frontend/public/assets/uploaded/8cea9dbe688448677b472a8d5e73118d-6.jpg",
-          "frontend/src/components/pages/Page2Hold.tsx",
-          "frontend/src/components/pages/Page3Apology.tsx"
+          "frontend/src/components/pages/Page1Splash.tsx",
+          "frontend/src/index.css"
         ],
-        "matchedFiles": [
-          "frontend/src/components/pages/Page2Hold.tsx",
-          "frontend/src/components/pages/Page3Apology.tsx"
-        ]
+        "matchedFiles": []
       },
       {
         "id": "REQ-4",
-        "summary": "Implement Page 4 behavior so the “No 🥀” button playfully moves/shifts position on touch/hover/interaction to make it difficult to click, while the “Yes 🌹” button remains clickable and navigates to Page 5.",
+        "summary": "Page 2 must display centered text exactly: \"I want to hold u every time 🫠\" and a clearly visible “Next” button at the bottom center of the viewport.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/pages/Page4ForgivePrompt.tsx",
-          "frontend/src/index.css"
+          "frontend/src/components/pages/Page2Hold.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/pages/Page4ForgivePrompt.tsx",
-          "frontend/src/index.css"
+          "frontend/src/components/pages/Page2Hold.tsx"
         ]
       },
       {
         "id": "REQ-5",
-        "summary": "Apply and keep a consistent minimal, aesthetic, romantic design across all pages using the color theme #20201F (dark background) and #EE6E4D (accent), a clean serif romantic font for all text, soft rounded buttons, and smooth transition styling consistent with the existing transition system.",
-        "status": "implemented",
+        "summary": "Page 3 must show a short, heartfelt, romantic apology message (keep it concise), and a clearly visible “Next” button at the bottom center of the viewport.",
+        "status": "missing",
         "plannedFiles": [
-          "frontend/src/index.css",
-          "frontend/src/components/pages/Page1Splash.tsx",
-          "frontend/src/components/pages/Page2Hold.tsx",
-          "frontend/src/components/pages/Page3Apology.tsx",
-          "frontend/src/components/pages/Page4ForgivePrompt.tsx",
-          "frontend/src/components/pages/Page5Final.tsx"
+          "frontend/src/components/pages/Page3Apology.tsx"
         ],
-        "matchedFiles": [
-          "frontend/src/index.css",
-          "frontend/src/components/pages/Page1Splash.tsx",
-          "frontend/src/components/pages/Page2Hold.tsx",
-          "frontend/src/components/pages/Page3Apology.tsx",
-          "frontend/src/components/pages/Page4ForgivePrompt.tsx",
-          "frontend/src/components/pages/Page5Final.tsx"
-        ]
+        "matchedFiles": []
       },
       {
         "id": "REQ-6",
-        "summary": "Add the hugging-couple GIF as a static frontend asset and render it on Page 5 centered on the page.",
+        "summary": "Page 4 must display centered text exactly: \"Are you willing to forgive me, bab? ❤️\" and two buttons below it labeled exactly \"Yes 🌹\" and \"No 🥀\". Clicking \"Yes 🌹\" must navigate to Page 5.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/pages/Page4ForgivePrompt.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/pages/Page4ForgivePrompt.tsx"
+        ]
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Make the Page 4 \"No 🥀\" button playfully evade interaction by shifting position when hovered (mouse) or touched (touch devices), so it cannot be clicked easily while still remaining visible on screen.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/pages/Page4ForgivePrompt.tsx",
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/pages/Page4ForgivePrompt.tsx"
+        ]
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Page 5 must display centered text exactly: \"Awwwwweehh! Lvb u bab 💋\" and show exactly one cute cartoon couple-hugging GIF centered beneath the text. Page 5 must not show any “Next” button.",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/components/pages/Page5Final.tsx",
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Enforce the image sourcing rule: the app must not include any stock/external images. The Page 5 hugging GIF must be created/derived solely from the user-uploaded image file (8cea9dbe688448677b472a8d5e73118d-10.jpg) and stored as a static frontend asset under frontend/public/assets/generated, then referenced directly from the frontend.",
         "status": "implemented",
         "plannedFiles": [
           "frontend/public/assets/generated/hugging-couple.dim_600x600.gif",
           "frontend/src/components/pages/Page5Final.tsx"
         ],
         "matchedFiles": [
-          "frontend/public/assets/generated/hugging-couple.dim_600x600.gif",
-          "frontend/src/components/pages/Page5Final.tsx"
+          "frontend/public/assets/generated/hugging-couple.dim_600x600.gif"
         ]
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
-    "caffeine.lock.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
     "frontend/public/assets/generated/hugging-couple.dim_600x600.gif",
-    "frontend/src/components/ValentineFlow.tsx",
-    "frontend/src/components/pages/Page1Splash.tsx",
     "frontend/src/components/pages/Page2Hold.tsx",
-    "frontend/src/components/pages/Page3Apology.tsx",
-    "frontend/src/components/pages/Page3Forgive.tsx",
     "frontend/src/components/pages/Page4ForgivePrompt.tsx",
-    "frontend/src/components/pages/Page4Hug.tsx",
-    "frontend/src/components/pages/Page5Final.tsx",
-    "frontend/src/index.css",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

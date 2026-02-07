@@ -1,6 +1,6 @@
 {
   "frontend/index.html": "HTML entry point with Playfair Display font loaded from Google Fonts for vintage typography.",
-  "frontend/src/index.css": "Global styles with #20201F background and #EE6E4D accents, Playfair Display serif typography, soft rounded buttons (16px radius), smooth transitions, and styling for uploaded images, apology message container, and final GIF display.",
+  "frontend/src/index.css": "Global styles with #20201F background, #EE6E4D accents, Playfair Display serif typography, soft rounded buttons (16px radius), smooth page transition animations, and styling for the final GIF display.",
   "frontend/src/App.tsx": "Root application component that renders the ValentineFlow single-page experience.",
   "frontend/src/components/ValentineFlow.tsx": "Main flow controller managing a 5-page state machine (1→2→3→4→5) with smooth animated transitions between pages, where Page 1-3 advance via Next buttons, Page 4 advances only via \"Yes 🌹\", and Page 5 is the final stage with no navigation.",
   "frontend/src/components/FloatingHeartsBackground.tsx": "Background component rendering 15 subtle, slow-floating hearts with randomized positions and timing.",
@@ -10,14 +10,14 @@
   "frontend/src/components/stages/Stage3Letter.tsx": "Final stage displaying the personalized love letter in a centered Pastel White box with no images or inputs.",
   "frontend/tailwind.config.js": "Tailwind configuration with Playfair Display font family and extended theme matching the romantic apology aesthetic.",
   "frontend/src/components/pages/Page1Splash.tsx": "Page 1 displaying the apology text \"I'm really sorry chlow! 🤌🏻\" centered with a visible Next button at the bottom, no images on this page.",
-  "frontend/src/components/pages/Page2Hold.tsx": "Page 2 displaying \"I want to hold u every time 🫠\" with a user-uploaded image (Snapchat-44209910-5.jpg) and a bottom-centered Next button.",
+  "frontend/src/components/pages/Page2Hold.tsx": "Page 2 displaying centered text \"I want to hold u every time 🫠\" (corrected spacing) with a single Next button below; no images rendered on this page.",
   "frontend/src/components/pages/Page3Forgive.tsx": "Page 3 apology prompt with YES 🌹 button (advances to Page 4) and playful NO 🥀 button that moves away on click.",
   "frontend/src/components/pages/Page4Hug.tsx": "Final page displaying the hug image (8cea9dbe688448677b472a8d5e73118d-4.jpg), thank-you text, and a small love box with the final message.",
   "frontend/vite.config.ts": "Vite build configuration with React plugin, path aliases, environment variables, and Internet Computer proxy setup for local development and production builds.",
   "frontend/tsconfig.json": "TypeScript compiler configuration with ES2020 target, strict mode, React JSX support, and path alias mapping for the @ import prefix.",
   "frontend/tsconfig.node.json": "TypeScript configuration for Node.js build tools (Vite config) with ESNext module resolution.",
   "frontend/public/deploy-marker.txt": "Simple deployment marker file to verify the deployed canister is serving the latest frontend artifacts after redeploy.",
-  "frontend/src/components/pages/Page3Apology.tsx": "Page 3 showing a heartfelt romantic apology paragraph with a user-uploaded image (6de4a0ed8a66079b44f32ddcb86801a1-5.jpg) and a bottom-centered Next button.",
-  "frontend/src/components/pages/Page4ForgivePrompt.tsx": "Page 4 displaying \"Are you willing to forgive me, bab? ❤️\" with two buttons: \"Yes 🌹\" (advances to Page 5) and \"No 🥀\" (playfully moves away on hover/touch/click).",
-  "frontend/src/components/pages/Page5Final.tsx": "Final page (Page 5) displaying \"Awwwwweehh! Lvb u bab 💋\" with a centered animated hugging-couple GIF, no Next button present."
+  "frontend/src/components/pages/Page3Apology.tsx": "Page 3 showing the apology message \"I'm really sorry, I didn't mean to hurt you. You mean a lot to me. 🫂\" with a single Next button below; no images rendered on this page.",
+  "frontend/src/components/pages/Page4ForgivePrompt.tsx": "Page 4 displaying \"Are you willing to forgive me, bab? ❤️\" with two buttons labeled \"Yes 🌹\" (advances to Page 5) and \"No 🥀\" (playfully moves away on hover/touch/click with improved evasion logic); no images rendered on this page.",
+  "frontend/src/components/pages/Page5Final.tsx": "Final page (Page 5) displaying \"Awwwwweehh! Lvb u bab 💋\" with exactly one centered hugging-couple GIF beneath the text; this is the only page with an image."
 }
