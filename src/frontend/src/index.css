@@ -4,32 +4,32 @@
 
 @layer base {
     :root {
-        /* Dark theme: Black/Deep Grey with elegant accents */
-        --deep-black: 10% 0.005 280;
-        --deep-grey: 18% 0.01 280;
+        /* Dark Elegance theme: Deep charcoal with subtle accents */
+        --deep-charcoal: 10% 0.005 280;
+        --charcoal-mid: 15% 0.008 280;
         --soft-white: 95% 0.01 280;
-        --elegant-rose: 70% 0.15 15;
+        --elegant-gold: 75% 0.12 60;
         
-        --radius: 0.5rem;
-        --background: var(--deep-black);
+        --radius: 0.75rem;
+        --background: var(--deep-charcoal);
         --foreground: var(--soft-white);
-        --card: var(--deep-grey);
+        --card: var(--charcoal-mid);
         --card-foreground: var(--soft-white);
-        --popover: var(--deep-grey);
+        --popover: var(--charcoal-mid);
         --popover-foreground: var(--soft-white);
-        --primary: var(--elegant-rose);
-        --primary-foreground: var(--soft-white);
-        --secondary: var(--deep-grey);
+        --primary: var(--elegant-gold);
+        --primary-foreground: var(--deep-charcoal);
+        --secondary: var(--charcoal-mid);
         --secondary-foreground: var(--soft-white);
         --muted: 30% 0.02 280;
         --muted-foreground: 60% 0.03 280;
-        --accent: var(--elegant-rose);
-        --accent-foreground: var(--soft-white);
+        --accent: var(--elegant-gold);
+        --accent-foreground: var(--deep-charcoal);
         --destructive: 55% 0.22 25;
         --destructive-foreground: var(--soft-white);
         --border: 25% 0.02 280;
         --input: 25% 0.02 280;
-        --ring: var(--elegant-rose);
+        --ring: var(--elegant-gold);
     }
 
     * {
@@ -37,20 +37,22 @@
     }
     
     body {
-        background-color: #0a0a0a;
+        background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%);
+        background-attachment: fixed;
         color: #f5f5f5;
-        font-family: 'Poppins', 'Inter', sans-serif;
+        font-family: 'Montserrat', 'Inter', sans-serif;
         margin: 0;
         padding: 0;
         overflow-x: hidden;
+        min-height: 100vh;
     }
 }
 
-/* Stage transition animations */
-@keyframes fade-in-up {
+/* Stage transition animations - smooth fade + subtle scale */
+@keyframes stage-enter {
     from {
         opacity: 0;
-        transform: translateY(30px) scale(0.95);
+        transform: translateY(20px) scale(0.96);
     }
     to {
         opacity: 1;
@@ -58,140 +60,253 @@
     }
 }
 
-@keyframes fade-out-down {
+@keyframes stage-exit {
     from {
         opacity: 1;
         transform: translateY(0) scale(1);
     }
     to {
         opacity: 0;
-        transform: translateY(-30px) scale(0.95);
+        transform: translateY(-20px) scale(0.96);
     }
 }
 
 .stage-enter {
-    animation: fade-in-up 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation: stage-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .stage-exit {
-    animation: fade-out-down 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: stage-exit 0.5s cubic-bezier(0.4, 0, 0.6, 1) forwards;
 }
 
 /* Text styling */
 .romantic-text {
     font-family: 'Playfair Display', 'Georgia', serif;
     color: #f5f5f5;
-    line-height: 1.6;
+    line-height: 1.4;
     text-align: center;
+    font-weight: 600;
 }
 
 .body-text {
-    font-family: 'Poppins', 'Inter', sans-serif;
+    font-family: 'Montserrat', 'Inter', sans-serif;
     color: #e0e0e0;
     line-height: 1.8;
 }
 
-/* Apology button styling */
-.apology-button {
+/* Glassmorphism card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Button with subtle glow */
+.glow-button {
     background: linear-gradient(135deg, #d4a574 0%, #c89b6d 100%);
     color: #0a0a0a;
     border: none;
-    padding: 1rem 2.5rem;
+    padding: 1rem 3rem;
     font-size: 1.25rem;
     font-weight: 600;
-    font-family: 'Poppins', 'Inter', sans-serif;
+    font-family: 'Montserrat', 'Inter', sans-serif;
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 16px rgba(212, 165, 116, 0.3);
+    box-shadow: 0 0 20px rgba(212, 165, 116, 0.4), 0 4px 16px rgba(212, 165, 116, 0.3);
     text-align: center;
-}
-
-.apology-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
-    background: linear-gradient(135deg, #e0b585 0%, #d4a574 100%);
-}
-
-.apology-button:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(212, 165, 116, 0.3);
-}
-
-.bottom-button {
-    margin-top: auto;
-}
-
-.no-button {
     position: relative;
 }
 
-/* Image styling */
-.apology-image {
-    max-width: 100%;
-    width: 100%;
-    max-height: 500px;
-    object-fit: cover;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+.glow-button::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 14px;
+    padding: 2px;
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.6), rgba(200, 155, 109, 0.6));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
-.grayscale-image {
-    filter: grayscale(100%);
+.glow-button:hover::before {
+    opacity: 1;
 }
 
-.image-container {
-    width: 100%;
-    max-width: 600px;
-    margin: 2rem auto;
+.glow-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(212, 165, 116, 0.6), 0 6px 20px rgba(212, 165, 116, 0.4);
+    background: linear-gradient(135deg, #e0b585 0%, #d4a574 100%);
 }
 
-/* Heart animations */
-@keyframes float-up {
-    0% {
-        opacity: 0;
-        transform: translateY(0) scale(0);
+.glow-button:active {
+    transform: translateY(0);
+    box-shadow: 0 0 15px rgba(212, 165, 116, 0.4), 0 2px 8px rgba(212, 165, 116, 0.3);
+}
+
+/* Yes button with stronger glow */
+.yes-button {
+    background: linear-gradient(135deg, #d4a574 0%, #c89b6d 100%);
+    color: #0a0a0a;
+    border: none;
+    padding: 1rem 3rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-family: 'Montserrat', 'Inter', sans-serif;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 30px rgba(212, 165, 116, 0.6), 0 4px 20px rgba(212, 165, 116, 0.5);
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.yes-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 40px rgba(212, 165, 116, 0.8), 0 6px 24px rgba(212, 165, 116, 0.6);
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 30px rgba(212, 165, 116, 0.6), 0 4px 20px rgba(212, 165, 116, 0.5);
     }
-    10% {
-        opacity: 1;
-        transform: translateY(-10px) scale(1);
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-100vh) scale(0.5);
+    50% {
+        box-shadow: 0 0 40px rgba(212, 165, 116, 0.8), 0 6px 24px rgba(212, 165, 116, 0.6);
     }
 }
 
-@keyframes pulse-heart {
+/* No button (runner) */
+.no-button {
+    background: linear-gradient(135deg, #6b6b6b 0%, #4a4a4a 100%);
+    color: #f5f5f5;
+    border: none;
+    padding: 1rem 3rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-family: 'Montserrat', 'Inter', sans-serif;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    position: absolute;
+}
+
+/* Heart-beat animation for Page 2 */
+@keyframes heartbeat {
     0%, 100% {
         transform: scale(1);
     }
-    50% {
+    10%, 30% {
         transform: scale(1.1);
+    }
+    20%, 40% {
+        transform: scale(1);
     }
 }
 
-.floating-heart {
-    position: fixed;
-    font-size: 2rem;
-    pointer-events: none;
-    z-index: 50;
-    animation: float-up 4s ease-in forwards;
+@keyframes aura-pulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.2);
+    }
 }
 
-.hearts-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
+.heart-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    margin: 2rem auto;
+}
+
+.heart-shape {
+    font-size: 8rem;
+    color: #d4a574;
+    animation: heartbeat 1.5s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(212, 165, 116, 0.6));
+}
+
+.aura-glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 165, 116, 0.4) 0%, rgba(212, 165, 116, 0) 70%);
+    animation: aura-pulse 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Circular image with pulsing border for Page 5 */
+.circular-image-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 2rem auto;
+}
+
+.circular-image {
     width: 100%;
     height: 100%;
-    pointer-events: none;
-    z-index: 40;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #d4a574;
+    box-shadow: 0 0 30px rgba(212, 165, 116, 0.6);
+    animation: pulse-border 2s ease-in-out infinite;
 }
 
+@keyframes pulse-border {
+    0%, 100% {
+        border-width: 4px;
+        box-shadow: 0 0 30px rgba(212, 165, 116, 0.6);
+        transform: scale(1);
+    }
+    50% {
+        border-width: 6px;
+        box-shadow: 0 0 50px rgba(212, 165, 116, 0.9);
+        transform: scale(1.02);
+    }
+}
+
+/* Confetti styles */
+.confetti-piece {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    z-index: 100;
+}
+
+@keyframes confetti-fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Final message pulse */
 .final-message {
-    animation: pulse-heart 2s ease-in-out infinite;
+    animation: gentle-pulse 2s ease-in-out infinite;
+}
+
+@keyframes gentle-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
 }

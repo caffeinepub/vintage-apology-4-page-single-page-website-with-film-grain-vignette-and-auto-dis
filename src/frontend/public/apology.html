@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry 💕</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Page 1 Styles */
+        .page1-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 3rem;
+            line-height: 1.4;
+        }
+
+        /* Page 2 Styles */
+        .page2-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: #ffb3c1;
+            margin-bottom: 3rem;
+            line-height: 1.5;
+        }
+
+        /* Page 3 Styles - Glassmorphism Card */
+        .apology-card {
+            background: rgba(255, 179, 193, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 179, 193, 0.3);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 32px 0 rgba(255, 179, 193, 0.15);
+        }
+
+        .apology-card h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #ffb3c1;
+            margin-bottom: 1.5rem;
+        }
+
+        .apology-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+        }
+
+        /* Page 4 Styles - The Game */
+        .question {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: #ffb3c1;
+            margin-bottom: 3rem;
+        }
+
+        .button-container {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            margin-bottom: 2rem;
+        }
+
+        .game-button {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .yes-button {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            color: #ffffff;
+            top: 20px;
+            box-shadow: 0 0 30px rgba(255, 107, 157, 0.6),
+                        0 0 60px rgba(255, 107, 157, 0.4);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 30px rgba(255, 107, 157, 0.6),
+                            0 0 60px rgba(255, 107, 157, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(255, 107, 157, 0.8),
+                            0 0 80px rgba(255, 107, 157, 0.6);
+            }
+        }
+
+        .yes-button:hover {
+            transform: translateX(-50%) scale(1.05);
+        }
+
+        .no-button {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 2px solid rgba(255, 179, 193, 0.5);
+            top: 110px;
+            transition: none;
+        }
+
+        /* Page 5 Styles */
+        .final-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: #ffb3c1;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        .final-image {
+            max-width: 100%;
+            width: 400px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(255, 179, 193, 0.6),
+                        0 0 80px rgba(255, 179, 193, 0.4);
+            animation: imagePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes imagePulse {
+            0%, 100% {
+                box-shadow: 0 0 40px rgba(255, 179, 193, 0.6),
+                            0 0 80px rgba(255, 179, 193, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 60px rgba(255, 179, 193, 0.8),
+                            0 0 100px rgba(255, 179, 193, 0.6);
+            }
+        }
+
+        /* Next Button */
+        .next-button {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 0.9rem 2.5rem;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+        }
+
+        .next-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.6);
+        }
+
+        .next-button:active {
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .page1-text {
+                font-size: 2.2rem;
+            }
+
+            .page2-text {
+                font-size: 1.8rem;
+            }
+
+            .apology-card {
+                padding: 1.5rem;
+            }
+
+            .apology-card h2 {
+                font-size: 1.6rem;
+            }
+
+            .apology-card p {
+                font-size: 1rem;
+            }
+
+            .question {
+                font-size: 1.8rem;
+            }
+
+            .game-button {
+                font-size: 1rem;
+                padding: 0.8rem 2rem;
+            }
+
+            .final-text {
+                font-size: 2rem;
+            }
+
+            .final-image {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page1-text {
+                font-size: 1.8rem;
+            }
+
+            .page2-text {
+                font-size: 1.5rem;
+            }
+
+            .question {
+                font-size: 1.5rem;
+            }
+
+            .final-text {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Page 1 -->
+        <div class="page active" id="page1">
+            <div class="page1-text">
+                I'm really sorry chlow! 🤌🏻
+            </div>
+            <button class="next-button" onclick="nextPage()">Next</button>
+        </div>
+
+        <!-- Page 2 -->
+        <div class="page" id="page2">
+            <div class="page2-text">
+                I want to hold u everytime 🫠
+            </div>
+            <button class="next-button" onclick="nextPage()">Next</button>
+        </div>
+
+        <!-- Page 3 -->
+        <div class="page" id="page3">
+            <div class="apology-card">
+                <h2>My Sincere Apology</h2>
+                <p>
+                    I know I messed up, and I'm truly sorry for hurting you. You mean the world to me, 
+                    and seeing you upset breaks my heart. I promise to do better, to listen more, 
+                    and to always cherish what we have. Please forgive me, bab. I love you more than words can say. 💕
+                </p>
+            </div>
+            <button class="next-button" onclick="nextPage()">Next</button>
+        </div>
+
+        <!-- Page 4 - The Game -->
+        <div class="page" id="page4">
+            <div class="question">
+                Are u willing to forgive me bab? ❤️
+            </div>
+            <div class="button-container" id="buttonContainer">
+                <button class="game-button yes-button" onclick="nextPage()">Yes</button>
+                <button class="game-button no-button" id="noButton">No</button>
+            </div>
+        </div>
+
+        <!-- Page 5 - Final -->
+        <div class="page" id="page5">
+            <div class="final-text">
+                Awwwwweehh! Lvb u bab 💋
+            </div>
+            <!-- IMPORTANT: Rename your image file to 'our-pic.jpg' and place it in the same directory as this HTML file -->
+            <img src="our-pic.jpg" alt="Our Picture" class="final-image">
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 5;
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                document.getElementById(`page${currentPage}`).classList.remove('active');
+                currentPage++;
+                document.getElementById(`page${currentPage}`).classList.add('active');
+
+                // Initialize No button behavior when reaching page 4
+                if (currentPage === 4) {
+                    initializeNoButton();
+                }
+            }
+        }
+
+        function initializeNoButton() {
+            const noButton = document.getElementById('noButton');
+            const container = document.getElementById('buttonContainer');
+
+            // Function to move the No button to a random position
+            function moveNoButton() {
+                const containerRect = container.getBoundingClientRect();
+                const buttonRect = noButton.getBoundingClientRect();
+                
+                // Calculate safe boundaries (keeping button fully inside container)
+                const maxX = containerRect.width - buttonRect.width;
+                const maxY = containerRect.height - buttonRect.height;
+                
+                // Generate random position within safe boundaries
+                const randomX = Math.random() * maxX;
+                const randomY = Math.random() * maxY;
+                
+                // Apply position (using left/top instead of transform for absolute positioning)
+                noButton.style.left = randomX + 'px';
+                noButton.style.top = randomY + 'px';
+                noButton.style.transform = 'none';
+            }
+
+            // Mouse hover detection
+            noButton.addEventListener('mouseenter', moveNoButton);
+
+            // Touch/pointer move detection for mobile
+            noButton.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                moveNoButton();
+            });
+
+            // Pointer events for broader device support
+            noButton.addEventListener('pointerenter', moveNoButton);
+
+            // Click prevention - just move the button again
+            noButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                moveNoButton();
+            });
+
+            // Additional safety: detect when cursor gets close (for very fast movements)
+            container.addEventListener('mousemove', (e) => {
+                const buttonRect = noButton.getBoundingClientRect();
+                const distance = Math.sqrt(
+                    Math.pow(e.clientX - (buttonRect.left + buttonRect.width / 2), 2) +
+                    Math.pow(e.clientY - (buttonRect.top + buttonRect.height / 2), 2)
+                );
+                
+                // If cursor is within 80px of button center, move it
+                if (distance < 80) {
+                    moveNoButton();
+                }
+            });
+
+            // Touch move detection for mobile
+            container.addEventListener('touchmove', (e) => {
+                const touch = e.touches[0];
+                const buttonRect = noButton.getBoundingClientRect();
+                const distance = Math.sqrt(
+                    Math.pow(touch.clientX - (buttonRect.left + buttonRect.width / 2), 2) +
+                    Math.pow(touch.clientY - (buttonRect.top + buttonRect.height / 2), 2)
+                );
+                
+                if (distance < 80) {
+                    moveNoButton();
+                }
+            });
+        }
+    </script>
+</body>
+</html>

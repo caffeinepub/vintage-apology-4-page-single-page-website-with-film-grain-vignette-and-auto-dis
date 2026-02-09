@@ -3,9 +3,10 @@ import Page1Splash from './pages/Page1Splash';
 import Page2Hold from './pages/Page2Hold';
 import Page3Apology from './pages/Page3Apology';
 import Page4ForgivePrompt from './pages/Page4ForgivePrompt';
+import Page5Final from './pages/Page5Final';
 import StageTransition from './StageTransition';
 
-type Page = 1 | 2 | 3 | 4;
+type Page = 1 | 2 | 3 | 4 | 5;
 
 export default function ValentineFlow() {
     const [currentPage, setCurrentPage] = useState<Page>(1);
@@ -16,7 +17,7 @@ export default function ValentineFlow() {
         setTimeout(() => {
             setCurrentPage(nextPage);
             setIsTransitioning(false);
-        }, 600);
+        }, 500);
     };
 
     return (
@@ -26,7 +27,8 @@ export default function ValentineFlow() {
                     {currentPage === 1 && <Page1Splash onNext={() => handlePageChange(2)} />}
                     {currentPage === 2 && <Page2Hold onNext={() => handlePageChange(3)} />}
                     {currentPage === 3 && <Page3Apology onNext={() => handlePageChange(4)} />}
-                    {currentPage === 4 && <Page4ForgivePrompt />}
+                    {currentPage === 4 && <Page4ForgivePrompt onYes={() => handlePageChange(5)} />}
+                    {currentPage === 5 && <Page5Final />}
                 </StageTransition>
             </div>
         </div>

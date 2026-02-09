@@ -2,11 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-single-page-flow-to-have-exactly-4-distinct-sections-that-transition-smoothly-in-this-order-page-1-page-2-page-3-page-4-pages-1-3-must-advance-via-a-clearly-visible-next-button-and-page-4-must-not-navigate-away-instead-it-must-show-the-final-yes-outcome-content-in-place-after-clicking-yes",
-      "featureTitle": "Update the single-page flow to have exactly 4 distinct sections that transition smoothly in this order: Page 1 -> Page 2 -> Page 3 -> Page 4. Pages 1–3 must advance via a clearly visible “Next” button, and Page 4 must not navigate away; instead it must show the final “Yes” outcome content in-place after clicking “Yes 🌹”.",
+      "featureId": "feature-create-a-standalone-single-file-apology-website-at-frontend-public-apology-html-that-contains-all-css-and-javascript-inline-no-external-css-js-files-and-implements-a-5-page-flow-navigated-via-a-next-button",
+      "featureTitle": "Create a standalone, single-file apology website at `frontend/public/apology.html` that contains all CSS and JavaScript inline (no external CSS/JS files) and implements a 5-page flow navigated via a \"Next\" button.",
       "files": [
-        "frontend/src/components/ValentineFlow.tsx",
-        "frontend/src/components/pages/Page5Final.tsx"
+        "frontend/public/apology.html"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -21,12 +20,10 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-ensure-the-visual-design-matches-a-clean-aesthetic-dark-theme-black-deep-grey-with-elegant-typography-playfair-display-or-poppins-applied-consistently-across-all-sections-while-keeping-the-layout-responsive-for-mobile",
-      "featureTitle": "Ensure the visual design matches a clean, aesthetic dark theme (black/deep grey) with elegant typography (Playfair Display or Poppins) applied consistently across all sections, while keeping the layout responsive for mobile.",
+      "featureId": "feature-match-the-requested-design-system-in-frontend-public-apology-html-dark-background-0a0a0a-text-in-white-and-rose-pink-accents-minimalist-and-classy-styling-and-load-google-fonts-so-body-text-uses-poppins-and-romantic-headers-use-dancing-script",
+      "featureTitle": "Match the requested design system in `frontend/public/apology.html`: dark background `#0a0a0a`, text in white and rose pink accents, minimalist and classy styling, and load Google Fonts so body text uses `Poppins` and romantic headers use `Dancing Script`.",
       "files": [
-        "frontend/index.html",
-        "frontend/src/index.css",
-        "frontend/tailwind.config.js"
+        "frontend/public/apology.html"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -41,11 +38,10 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-page-1-must-display-the-centered-text-exactly-i-m-really-sorry-chlow-and-a-next-button-positioned-at-the-bottom-of-the-viewport",
-      "featureTitle": "Page 1 must display the centered text exactly \"I'm really sorry chlow! 🤌🏻\" and a “Next” button positioned at the bottom of the viewport.",
+      "featureId": "feature-implement-the-exact-page-copy-and-structure-in-frontend-public-apology-html-page-1-centered-bold-text-i-m-really-sorry-chlow-page-2-simple-classy-text-i-want-to-hold-u-everytime-page-3-a-sincere-apology-note-displayed-inside-a-soft-border-glassmorphism-box-page-4-question-are-u-willing-to-forgive-me-bab-with-yes-no-buttons-page-5-text-awwwwweehh-lvb-u-bab-and-an-image-below-it",
+      "featureTitle": "Implement the exact page copy and structure in `frontend/public/apology.html`:\n- Page 1: Centered, bold text: \"I'm really sorry chlow! 🤌🏻\"\n- Page 2: Simple/classy text: \"I want to hold u everytime 🫠\"\n- Page 3: A sincere apology note displayed inside a soft-border glassmorphism box\n- Page 4: Question: \"Are u willing to forgive me bab? ❤️\" with Yes/No buttons\n- Page 5: Text: \"Awwwwweehh! Lvb u bab 💋\" and an image below it",
       "files": [
-        "frontend/src/components/pages/Page1Splash.tsx",
-        "frontend/src/index.css"
+        "frontend/public/apology.html"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -60,11 +56,10 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-page-2-must-display-the-text-exactly-i-want-to-hold-u-everytime-and-render-a-black-and-white-grayscale-image-area-beneath-it-include-a-clear-code-comment-indicating-where-the-user-can-replace-the-image-with-their-own-url",
-      "featureTitle": "Page 2 must display the text exactly \"I want to hold u everytime 🫠\" and render a black-and-white (grayscale) image area beneath it. Include a clear code comment indicating where the user can replace the image with their own URL.",
+      "featureId": "feature-on-page-4-inside-frontend-public-apology-html-implement-the-forgiveness-mini-game-behavior-yes-button-is-static-and-visibly-glowing-no-button-is-always-visible-but-effectively-impossible-to-click-when-the-cursor-hovers-near-it-or-pointer-touch-moves-near-it-it-jumps-to-a-random-x-y-position-within-the-visible-viewport-safe-container-area-the-evasion-logic-must-be-robust-the-no-button-must-never-move-outside-the-visible-screen-area-including-on-mobile-and-must-remain-fully-tappable-looking-but-not-actually-clickable",
+      "featureTitle": "On Page 4 inside `frontend/public/apology.html`, implement the forgiveness mini-game behavior:\n- \"Yes\" button is static and visibly glowing.\n- \"No\" button is always visible but effectively impossible to click: when the cursor hovers near it (or pointer/touch moves near it), it jumps to a random (x,y) position within the visible viewport/safe container area.\n- The evasion logic must be robust: the \"No\" button must never move outside the visible screen area (including on mobile) and must remain fully tappable-looking but not actually clickable.",
       "files": [
-        "frontend/src/components/pages/Page2Hold.tsx",
-        "frontend/src/index.css"
+        "frontend/public/apology.html"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -79,11 +74,10 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-page-3-must-display-a-heartfelt-apology-love-message-as-a-long-paragraph-placeholder-and-show-another-image-placeholder-for-a-user-uploaded-photo-include-a-clear-code-comment-indicating-where-the-user-can-replace-the-image-with-their-own-url",
-      "featureTitle": "Page 3 must display a heartfelt \"Apology Love Message\" as a long paragraph placeholder and show another image placeholder for a user-uploaded photo. Include a clear code comment indicating where the user can replace the image with their own URL.",
+      "featureId": "feature-on-page-5-inside-frontend-public-apology-html-render-the-image-using-the-exact-placeholder-tag-img-src-our-pic-jpg-and-include-an-in-code-comment-instructing-the-user-to-rename-their-chosen-photo-file-to-our-pic-jpg-add-a-soft-pink-glow-around-the-image",
+      "featureTitle": "On Page 5 inside `frontend/public/apology.html`, render the image using the exact placeholder tag `<img src='our-pic.jpg' />` and include an in-code comment instructing the user to rename their chosen photo file to `our-pic.jpg`; add a soft pink glow around the image.",
       "files": [
-        "frontend/src/components/pages/Page3Apology.tsx",
-        "frontend/src/index.css"
+        "frontend/public/apology.html"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -94,64 +88,6 @@
       ],
       "testIds": [
         "REQ-5"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-page-4-must-display-the-text-exactly-are-u-willing-to-forgive-me-bab-with-two-buttons-labeled-exactly-yes-and-no-the-no-button-must-evade-interaction-by-moving-away-smoothly-and-randomly-when-the-user-attempts-to-click-tap-hover-it-remaining-within-the-visible-container",
-      "featureTitle": "Page 4 must display the text exactly \"Are u willing to forgive me bab ❤️\" with two buttons labeled exactly \"Yes 🌹\" and \"No 🥀\". The \"No 🥀\" button must evade interaction by moving away smoothly and randomly when the user attempts to click/tap/hover it, remaining within the visible container.",
-      "files": [
-        "frontend/src/components/pages/Page4ForgivePrompt.tsx",
-        "frontend/src/index.css"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-6"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-when-yes-is-clicked-on-page-4-show-the-final-message-exactly-awwwwweehh-lvb-u-bab-and-render-heart-animations-e-g-floating-hearts-bursting-over-the-page-in-a-lightweight-mobile-friendly-way",
-      "featureTitle": "When \"Yes 🌹\" is clicked on Page 4, show the final message exactly \"Awwwwweehh! Lvb u bab 💋\" and render heart animations (e.g., floating/hearts bursting) over the page in a lightweight, mobile-friendly way.",
-      "files": [
-        "frontend/src/components/FloatingHeartsBackground.tsx",
-        "frontend/src/components/pages/Page4ForgivePrompt.tsx",
-        "frontend/src/index.css"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-7"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-use-only-the-user-uploaded-images-6de4a0ed8a66079b44f32ddcb86801a1-7-jpg-snapchat-44209910-7-jpg-8cea9dbe688448677b472a8d5e73118d-11-jpg-as-default-imagery-for-page-2-and-page-3-image-areas-stored-and-referenced-as-static-frontend-assets-do-not-introduce-stock-external-images",
-      "featureTitle": "Use only the user-uploaded images (6de4a0ed8a66079b44f32ddcb86801a1-7.jpg, Snapchat-44209910-7.jpg, 8cea9dbe688448677b472a8d5e73118d-11.jpg) as default imagery for Page 2 and Page 3 image areas, stored and referenced as static frontend assets. Do not introduce stock/external images.",
-      "files": [
-        "frontend/src/components/pages/Page2Hold.tsx",
-        "frontend/src/components/pages/Page3Apology.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-8"
       ],
       "confidence": "high"
     }

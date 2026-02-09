@@ -1,210 +1,89 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Dark-themed 4-section apology flow with local images, evasive No, and heart animation finale",
+  "title": "Standalone dark-theme single-file apology page with 5-step flow and evasive No button",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Refactor the single-page flow to exactly 4 smoothly transitioning sections with Next buttons on Pages 1–3 and an in-place Yes outcome on Page 4",
+      "summary": "Add a standalone single-file apology page (inline CSS/JS) with a 5-page flow navigated by a Next button.",
       "acceptanceCriteria": [
-        "There are exactly 4 sections in the rendered experience (no extra final page/route/state).",
-        "Transitions between sections are smooth and animated for each page change.",
-        "Page 1, Page 2, Page 3 each have a working “Next” button that advances to the next section.",
-        "Clicking “Yes 🌹” on Page 4 reveals the final message state within Page 4 (no navigation to a separate Page 5)."
+        "A new file `frontend/public/apology.html` exists and renders without relying on the React app bundle.",
+        "All styling is inside a `<style>` tag in the same HTML file and all behavior is inside a `<script>` tag in the same HTML file.",
+        "A \"Next\" button advances sequentially through Page 1 → Page 2 → Page 3 → Page 4 → Page 5.",
+        "The layout is responsive and usable on mobile screens."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/ValentineFlow.tsx",
-          "operation": "modify",
-          "description": "Update the flow to render only Pages 1–4, keep smooth transitions between them, and remove any navigation to a separate final page (ensure the transition wrapper re-animates on each page change via a stable key/structure)."
-        },
-        {
-          "path": "frontend/src/components/pages/Page5Final.tsx",
-          "operation": "delete",
-          "description": "Remove the unused final page so the experience cannot render a 5th section."
-        },
-        {
-          "path": "frontend/src/components/StageTransition.tsx",
-          "operation": "modify",
-          "description": "Adjust transition wrapper behavior (if needed) to ensure each section change triggers a smooth animated enter/exit without introducing additional pages."
+          "path": "frontend/public/apology.html",
+          "operation": "create",
+          "description": "Create a fully standalone HTML document that includes all CSS in a single inline <style> and all behavior in a single inline <script>; implement an internal 5-step view/state system with a Next button to advance sequentially and responsive layout rules for mobile."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Apply a consistent clean dark theme with elegant typography (Playfair Display and/or Poppins) across all sections with mobile responsiveness",
+      "summary": "Apply the requested dark minimalist design system and Google Fonts (Poppins + Dancing Script) within the standalone file.",
       "acceptanceCriteria": [
-        "Background across all sections uses black/deep grey tones (no bright/light page backgrounds).",
-        "Typography uses Playfair Display and/or Poppins consistently for headings/body/buttons.",
-        "All sections render well on small screens (no horizontal scrolling; text/buttons remain visible and tappable)."
+        "`apology.html` imports `Poppins` and `Dancing Script` from Google Fonts.",
+        "Body text uses `Poppins`; header/romantic text uses `Dancing Script`.",
+        "The page background color is `#0a0a0a` (or a visually equivalent dark theme anchored on `#0a0a0a`).",
+        "Primary text appears white, with rose-pink used as an accent color consistently."
       ],
       "file_operations": [
         {
-          "path": "frontend/index.html",
+          "path": "frontend/public/apology.html",
           "operation": "modify",
-          "description": "Ensure the required typography is available by loading Poppins in addition to Playfair Display and keeping the app language/title structure intact."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Refine global dark theme styling and typography so all sections share consistent deep-grey/black backgrounds, readable contrast, and mobile-safe spacing (no horizontal overflow)."
-        },
-        {
-          "path": "frontend/tailwind.config.js",
-          "operation": "modify",
-          "description": "Update Tailwind font families to include Poppins/Playfair appropriately for consistent typography across headings/body/buttons."
+          "description": "Add Google Fonts links for Poppins and Dancing Script in the <head>, set global typography (body uses Poppins; romantic headers use Dancing Script), and implement a dark theme anchored on #0a0a0a with white text and consistent rose-pink accents (buttons, borders, glows, highlights) using inline CSS."
         }
       ]
     },
     {
       "id": "REQ-3",
-      "summary": "Ensure Page 1 shows the exact centered text and a Next button fixed at the bottom of the viewport",
+      "summary": "Implement the exact 5-page copy/structure (including glassmorphism on Page 3 and image section on Page 5).",
       "acceptanceCriteria": [
-        "Page 1 shows the exact text string, centered.",
-        "A single “Next” button is visible at the bottom area of the screen without needing to scroll."
+        "Each page shows the specified text exactly as provided (including emoji).",
+        "Page 3 contains a visually distinct glassmorphism-style card with a soft border and readable apology note text.",
+        "Page 4 displays the question and both Yes/No buttons.",
+        "Page 5 displays the final text and an image element below it."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/pages/Page1Splash.tsx",
+          "path": "frontend/public/apology.html",
           "operation": "modify",
-          "description": "Adjust layout so the text remains centered while the “Next” button is positioned at the bottom of the viewport on mobile/desktop (no scrolling required) and the text remains exactly \"I'm really sorry chlow! 🤌🏻\"."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "If needed, refine shared layout utility classes (e.g., bottom button behavior) to guarantee Page 1's bottom-anchored “Next” button across device sizes."
+          "description": "Implement the exact page texts and layout structure for Pages 1–5 (including emoji), ensure Page 3 has a dedicated glassmorphism card container with a soft border and readable apology note, ensure Page 4 shows the question plus Yes/No buttons, and ensure Page 5 shows the final text with an image element below it."
         }
       ]
     },
     {
       "id": "REQ-4",
-      "summary": "Implement Page 2 exact text, grayscale image area beneath it (local default asset), and a clear comment for replacing the image URL",
+      "summary": "Add the Page 4 forgiveness mini-game: static glowing Yes and an evasive No button that stays on-screen and can’t be successfully clicked.",
       "acceptanceCriteria": [
-        "Page 2 shows the exact text string (including spelling \"everytime\").",
-        "A grayscale image (or grayscale-styled placeholder image area) is visible on Page 2.",
-        "The Page 2 component contains an explicit code comment showing where to paste/replace the image URL.",
-        "A “Next” button is present and advances to Page 3."
+        "The Yes button does not move and has a clear glow effect.",
+        "The No button relocates when a pointer/mouse gets near it and also responds to touch/pointer movement on mobile.",
+        "The No button never renders partially or fully off-screen after moving (verified by clamping within viewport bounds using measured button dimensions).",
+        "Click/tap attempts on the No button do not successfully trigger a 'No' action; instead they cause the button to move again."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/pages/Page2Hold.tsx",
+          "path": "frontend/public/apology.html",
           "operation": "modify",
-          "description": "Update Page 2 to display the exact text \"I want to hold u everytime 🫠\", render a grayscale image beneath it using a local static asset by default, include an explicit code comment indicating where to replace with a custom URL, and keep a working “Next” button to Page 3."
-        },
-        {
-          "path": "frontend/public/assets/generated/page2-grayscale.dim_800x1200.jpg",
-          "operation": "create",
-          "description": "Add the edited grayscale-with-gentle-contrast image asset for Page 2 defaults (derived from Snapchat-44209910-7.jpg) at this exact path and filename."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Add/adjust image container styling for Page 2 so the grayscale image area is responsive, fits well on mobile, and matches the dark theme."
+          "description": "Implement Page 4 interactions in inline JS: keep the Yes button stationary with a visible glow via inline CSS; for the No button, attach pointer/mouse proximity handling and touch/pointer-move handling to relocate it to random positions within a defined safe container; clamp positions using runtime measurements (container + button dimensions) to prevent off-screen placement; intercept click/tap on No to only trigger another move (no 'No' action)."
         }
       ]
     },
     {
       "id": "REQ-5",
-      "summary": "Implement Page 3 long apology paragraph and a second image area (local default asset), with a clear comment for replacing the image URL",
+      "summary": "On Page 5, render the image using the exact placeholder tag and include a rename instruction comment; style with a soft pink glow.",
       "acceptanceCriteria": [
-        "Page 3 shows a noticeably long paragraph (multi-sentence placeholder) as the apology message.",
-        "An image area/placeholder is displayed on Page 3.",
-        "The Page 3 component contains an explicit code comment showing where to paste/replace the image URL.",
-        "A “Next” button is present and advances to Page 4."
+        "`apology.html` contains an `<img src='our-pic.jpg' />` element on the final page.",
+        "A nearby HTML comment explicitly instructs the user to rename their image file to `our-pic.jpg`.",
+        "The image has a soft pink glow (e.g., via box-shadow/filter) and is styled to look polished on mobile and desktop."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/pages/Page3Apology.tsx",
+          "path": "frontend/public/apology.html",
           "operation": "modify",
-          "description": "Replace current short text with a multi-sentence long \"Apology Love Message\" paragraph placeholder, add a responsive image area beneath it using a local static asset by default, include an explicit code comment indicating where to replace with a custom URL, and keep a working “Next” button to Page 4."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Add/adjust Page 3 paragraph and image area styling for readability on dark background and responsive layout on small screens."
-        }
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "summary": "Implement Page 4 exact prompt text with Yes/No buttons and smooth evasive No behavior that stays within a visible container",
-      "acceptanceCriteria": [
-        "Page 4 shows the exact prompt text string (including \"Are u\" not \"Are you\").",
-        "Buttons are labeled exactly \"Yes 🌹\" and \"No 🥀\".",
-        "Attempting to hover/tap/click the \"No 🥀\" button causes it to move to a new random position with a smooth animation.",
-        "The \"No 🥀\" button stays on-screen/inside its container and remains visibly reachable (even if hard to click)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/pages/Page4ForgivePrompt.tsx",
-          "operation": "modify",
-          "description": "Update the prompt text to exactly \"Are u willing to forgive me bab ❤️\", keep button labels exactly \"Yes 🌹\" and \"No 🥀\", and refine the evasive \"No 🥀\" logic so it moves smoothly/randomly on hover/tap/click while clamping positions to remain fully visible within its container."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Add/adjust styles for the Page 4 interaction container to ensure the evasive button remains within a predictable visible area on mobile and the motion feels smooth."
-        }
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "summary": "On Yes click, reveal the final message in-place on Page 4 and show lightweight floating/bursting heart animations that don’t block reading",
-      "acceptanceCriteria": [
-        "Clicking \"Yes 🌹\" reveals the final message with the exact text string.",
-        "Hearts animate on screen after clicking \"Yes 🌹\" and do not significantly degrade performance on mobile.",
-        "The hearts animation layer does not block the user from reading the final message."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/pages/Page4ForgivePrompt.tsx",
-          "operation": "modify",
-          "description": "Implement an in-component final state for Page 4: clicking \"Yes 🌹\" reveals exactly \"Awwwwweehh! Lvb u bab 💋\" in-place and triggers a hearts animation overlay without navigating away."
-        },
-        {
-          "path": "frontend/src/components/FloatingHeartsBackground.tsx",
-          "operation": "modify",
-          "description": "Implement a lightweight, mobile-friendly hearts animation layer (e.g., a small number of animated heart elements) that can be toggled on after \"Yes 🌹\" and uses pointer-events none so it won’t block reading."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Add CSS keyframes/classes for heart floating/bursting animations and ensure the overlay is visually above the background but below/around the readable final message."
-        }
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "summary": "Use only the provided uploaded images as default Page 2/Page 3 imagery via static frontend assets (no stock/external images)",
-      "acceptanceCriteria": [
-        "Page 2 and Page 3 show default images sourced from the uploaded files (no remote URLs by default).",
-        "No new stock/external images are added to the project."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/public/assets/uploaded/6de4a0ed8a66079b44f32ddcb86801a1-7.jpg",
-          "operation": "create",
-          "description": "Add the uploaded image as a static asset for default usage (copy from the provided workspace asset list) so Page 2/Page 3 can reference it locally."
-        },
-        {
-          "path": "frontend/public/assets/uploaded/Snapchat-44209910-7.jpg",
-          "operation": "create",
-          "description": "Add the uploaded image as a static asset for local referencing/auditing (even if Page 2 defaults to the edited grayscale version)."
-        },
-        {
-          "path": "frontend/public/assets/uploaded/8cea9dbe688448677b472a8d5e73118d-11.jpg",
-          "operation": "create",
-          "description": "Add the uploaded image as a static asset for default usage (copy from the provided workspace asset list) so Page 3 can reference it locally."
-        },
-        {
-          "path": "frontend/src/components/pages/Page2Hold.tsx",
-          "operation": "modify",
-          "description": "Ensure Page 2 uses only local static assets by default (specifically the grayscale generated asset) and contains a comment for optional replacement by URL without introducing any external default."
-        },
-        {
-          "path": "frontend/src/components/pages/Page3Apology.tsx",
-          "operation": "modify",
-          "description": "Ensure Page 3 uses only local static assets by default (one of the uploaded images) and contains a comment for optional replacement by URL without introducing any external default."
+          "description": "On Page 5, include the exact tag `<img src='our-pic.jpg' />` and add a nearby HTML comment instructing the user to rename their chosen photo file to `our-pic.jpg`; style the image with a soft pink glow and responsive sizing/presentation suitable for mobile and desktop."
         }
       ]
     }

@@ -1,183 +1,115 @@
 {
   "kind": "build_request",
-  "title": "Refine dark-themed 4-section interactive apology site (images + heart animation + evasive No)",
+  "title": "Add standalone single-file apology website (dark theme) with 5-step flow and evasive No button",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update the single-page flow to have exactly 4 distinct sections that transition smoothly in this order: Page 1 -> Page 2 -> Page 3 -> Page 4. Pages 1–3 must advance via a clearly visible “Next” button, and Page 4 must not navigate away; instead it must show the final “Yes” outcome content in-place after clicking “Yes 🌹”.",
+      "text": "Create a standalone, single-file apology website at `frontend/public/apology.html` that contains all CSS and JavaScript inline (no external CSS/JS files) and implements a 5-page flow navigated via a \"Next\" button.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "The website should have 4 distinct sections (pages) that transition smoothly.",
-          "If \"Yes\" is clicked, show a final message: \"Awwwwweehh! Lvb u bab 💋\" with some heart animations."
+          "All CSS and JavaScript must be inside a single HTML file. Functional Pages (Navigation via 'Next' button)"
         ]
       },
       "acceptanceCriteria": [
-        "There are exactly 4 sections in the rendered experience (no extra final page/route/state).",
-        "Transitions between sections are smooth and animated for each page change.",
-        "Page 1, Page 2, Page 3 each have a working “Next” button that advances to the next section.",
-        "Clicking “Yes 🌹” on Page 4 reveals the final message state within Page 4 (no navigation to a separate Page 5)."
+        "A new file `frontend/public/apology.html` exists and renders without relying on the React app bundle.",
+        "All styling is inside a `<style>` tag in the same HTML file and all behavior is inside a `<script>` tag in the same HTML file.",
+        "A \"Next\" button advances sequentially through Page 1 → Page 2 → Page 3 → Page 4 → Page 5.",
+        "The layout is responsive and usable on mobile screens."
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Ensure the visual design matches a clean, aesthetic dark theme (black/deep grey) with elegant typography (Playfair Display or Poppins) applied consistently across all sections, while keeping the layout responsive for mobile.",
+      "text": "Match the requested design system in `frontend/public/apology.html`: dark background `#0a0a0a`, text in white and rose pink accents, minimalist and classy styling, and load Google Fonts so body text uses `Poppins` and romantic headers use `Dancing Script`.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "Use a clean, aesthetic design with a dark theme (Black/Deep Grey) and elegant fonts (like Playfair Display or Poppins).",
-          "Keep it responsive for mobile."
+          "Use a clean, dark-themed UI (Background: #0a0a0a, Text: White/Rose Pink). Fonts: Use 'Poppins' for body and 'Dancing Script' (from Google Fonts) for romantic headers. Overall Style: Minimalist, decent, and responsive for mobile."
         ]
       },
       "acceptanceCriteria": [
-        "Background across all sections uses black/deep grey tones (no bright/light page backgrounds).",
-        "Typography uses Playfair Display and/or Poppins consistently for headings/body/buttons.",
-        "All sections render well on small screens (no horizontal scrolling; text/buttons remain visible and tappable)."
+        "`apology.html` imports `Poppins` and `Dancing Script` from Google Fonts.",
+        "Body text uses `Poppins`; header/romantic text uses `Dancing Script`.",
+        "The page background color is `#0a0a0a` (or a visually equivalent dark theme anchored on `#0a0a0a`).",
+        "Primary text appears white, with rose-pink used as an accent color consistently."
       ]
     },
     {
       "id": "REQ-3",
-      "text": "Page 1 must display the centered text exactly \"I'm really sorry chlow! 🤌🏻\" and a “Next” button positioned at the bottom of the viewport.",
+      "text": "Implement the exact page copy and structure in `frontend/public/apology.html`:\n- Page 1: Centered, bold text: \"I'm really sorry chlow! 🤌🏻\"\n- Page 2: Simple/classy text: \"I want to hold u everytime 🫠\"\n- Page 3: A sincere apology note displayed inside a soft-border glassmorphism box\n- Page 4: Question: \"Are u willing to forgive me bab? ❤️\" with Yes/No buttons\n- Page 5: Text: \"Awwwwweehh! Lvb u bab 💋\" and an image below it",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "Page 1: ... Text: \"I'm really sorry chlow! 🤌🏻\" (Centered, decent font).",
-          "A \"Next\" button at the bottom."
+          "Page 1: Text \"I'm really sorry chlow! 🤌🏻\". (Centered, bold). Page 2: Text \"I want to hold u everytime 🫠\". Page 3: A sincere apology note with a soft border/glassmorphism box. Page 4 (The Game): Question: \"Are u willing to forgive me bab? ❤️\" Page 5 (Final): Text: \"Awwwwweehh! Lvb u bab 💋\""
         ]
       },
       "acceptanceCriteria": [
-        "Page 1 shows the exact text string, centered.",
-        "A single “Next” button is visible at the bottom area of the screen without needing to scroll."
+        "Each page shows the specified text exactly as provided (including emoji).",
+        "Page 3 contains a visually distinct glassmorphism-style card with a soft border and readable apology note text.",
+        "Page 4 displays the question and both Yes/No buttons.",
+        "Page 5 displays the final text and an image element below it."
       ]
     },
     {
       "id": "REQ-4",
-      "text": "Page 2 must display the text exactly \"I want to hold u everytime 🫠\" and render a black-and-white (grayscale) image area beneath it. Include a clear code comment indicating where the user can replace the image with their own URL.",
+      "text": "On Page 4 inside `frontend/public/apology.html`, implement the forgiveness mini-game behavior:\n- \"Yes\" button is static and visibly glowing.\n- \"No\" button is always visible but effectively impossible to click: when the cursor hovers near it (or pointer/touch moves near it), it jumps to a random (x,y) position within the visible viewport/safe container area.\n- The evasion logic must be robust: the \"No\" button must never move outside the visible screen area (including on mobile) and must remain fully tappable-looking but not actually clickable.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "Page 2:\n\u000bText: \"I want to hold u everytime 🫠\"\n\u000bImage Placeholder: Show a B&W (grayscale) image placeholder. (Add a comment in code where I can put my image URL)."
+          "The Yes Button: Static and glowing. The No Button: Must be visible but impossible to click... jumps to a random (X, Y) coordinate within the screen... Ensure the 'No' button logic is robust so it doesn't move outside the visible screen area."
         ]
       },
       "acceptanceCriteria": [
-        "Page 2 shows the exact text string (including spelling \"everytime\").",
-        "A grayscale image (or grayscale-styled placeholder image area) is visible on Page 2.",
-        "The Page 2 component contains an explicit code comment showing where to paste/replace the image URL.",
-        "A “Next” button is present and advances to Page 3."
+        "The Yes button does not move and has a clear glow effect.",
+        "The No button relocates when a pointer/mouse gets near it and also responds to touch/pointer movement on mobile.",
+        "The No button never renders partially or fully off-screen after moving (verified by clamping within viewport bounds using measured button dimensions).",
+        "Click/tap attempts on the No button do not successfully trigger a 'No' action; instead they cause the button to move again."
       ]
     },
     {
       "id": "REQ-5",
-      "text": "Page 3 must display a heartfelt \"Apology Love Message\" as a long paragraph placeholder and show another image placeholder for a user-uploaded photo. Include a clear code comment indicating where the user can replace the image with their own URL.",
+      "text": "On Page 5 inside `frontend/public/apology.html`, render the image using the exact placeholder tag `<img src='our-pic.jpg' />` and include an in-code comment instructing the user to rename their chosen photo file to `our-pic.jpg`; add a soft pink glow around the image.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "Page 3:\n\u000bContent: A heartfelt \"Apology Love Message\" (use a long paragraph placeholder).\n\u000bImage Placeholder: Another user-uploaded photo placeholder.\n\u000bA \"Next\" button."
+          "Crucial: In the code, use a placeholder <img src='our-pic.jpg' /> and add a comment telling me to rename my image file to 'our-pic.jpg'. Add a soft pink glow around the image."
         ]
       },
       "acceptanceCriteria": [
-        "Page 3 shows a noticeably long paragraph (multi-sentence placeholder) as the apology message.",
-        "An image area/placeholder is displayed on Page 3.",
-        "The Page 3 component contains an explicit code comment showing where to paste/replace the image URL.",
-        "A “Next” button is present and advances to Page 4."
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "text": "Page 4 must display the text exactly \"Are u willing to forgive me bab ❤️\" with two buttons labeled exactly \"Yes 🌹\" and \"No 🥀\". The \"No 🥀\" button must evade interaction by moving away smoothly and randomly when the user attempts to click/tap/hover it, remaining within the visible container.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "Page 4 (The Interaction):\n\u000bText: \"Are u willing to forgive me bab ❤️\"\n\u000bButtons:\n\u000b\"Yes 🌹\" button.\n\u000b\"No 🥀\" button.\n\u000bLogic: If the user tries to click \"No\", the button should move away randomly (evasive button) so he can't click it.\n\u000b... Ensure the \"No\" button logic is smooth and fun."
-        ]
-      },
-      "acceptanceCriteria": [
-        "Page 4 shows the exact prompt text string (including \"Are u\" not \"Are you\").",
-        "Buttons are labeled exactly \"Yes 🌹\" and \"No 🥀\".",
-        "Attempting to hover/tap/click the \"No 🥀\" button causes it to move to a new random position with a smooth animation.",
-        "The \"No 🥀\" button stays on-screen/inside its container and remains visibly reachable (even if hard to click)."
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "text": "When \"Yes 🌹\" is clicked on Page 4, show the final message exactly \"Awwwwweehh! Lvb u bab 💋\" and render heart animations (e.g., floating/hearts bursting) over the page in a lightweight, mobile-friendly way.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "If \"Yes\" is clicked, show a final message: \"Awwwwweehh! Lvb u bab 💋\" with some heart animations."
-        ]
-      },
-      "acceptanceCriteria": [
-        "Clicking \"Yes 🌹\" reveals the final message with the exact text string.",
-        "Hearts animate on screen after clicking \"Yes 🌹\" and do not significantly degrade performance on mobile.",
-        "The hearts animation layer does not block the user from reading the final message."
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "text": "Use only the user-uploaded images (6de4a0ed8a66079b44f32ddcb86801a1-7.jpg, Snapchat-44209910-7.jpg, 8cea9dbe688448677b472a8d5e73118d-11.jpg) as default imagery for Page 2 and Page 3 image areas, stored and referenced as static frontend assets. Do not introduce stock/external images.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "The user has uploaded 3 image(s): 6de4a0ed8a66079b44f32ddcb86801a1-7.jpg, Snapchat-44209910-7.jpg, 8cea9dbe688448677b472a8d5e73118d-11.jpg."
-        ]
-      },
-      "acceptanceCriteria": [
-        "Page 2 and Page 3 show default images sourced from the uploaded files (no remote URLs by default).",
-        "No new stock/external images are added to the project."
+        "`apology.html` contains an `<img src='our-pic.jpg' />` element on the final page.",
+        "A nearby HTML comment explicitly instructs the user to rename their image file to `our-pic.jpg`.",
+        "The image has a soft pink glow (e.g., via box-shadow/filter) and is styled to look polished on mobile and desktop."
       ]
     }
   ],
   "constraints": [
-    "Frontend immutable paths must not be edited: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
-    "Backend must remain a single Motoko actor in backend/main.mo (no extra canisters/services).",
-    "User-facing text in the app must remain in English and must match the exact strings provided for each page.",
-    "Do not add stock/external images; default visuals must use only the user-uploaded images provided in the request."
+    "Frontend immutable paths must not be edited: `frontend/src/hooks/useInternetIdentity.ts`, `frontend/src/hooks/useInternetIdentity.tsx`, `frontend/src/hooks/useActor.ts`, `frontend/src/main.tsx`, and anything under `frontend/src/components/ui`.",
+    "Do not add any backend changes; keep all work in the frontend static asset layer.",
+    "User-facing text in the build request and in the created page must be in English (use the exact provided phrases)."
   ],
   "nonGoals": [
-    "Adding authentication, user accounts, or backend persistence.",
-    "Adding more than 4 sections/pages to the interactive flow.",
-    "Integrating third-party animation libraries or external image/CDN dependencies solely for the hearts effect."
+    "Do not replace the existing React-based flow/components unless explicitly requested; the deliverable is an additional standalone `apology.html` file.",
+    "Do not integrate Internet Identity or any backend persistence for this apology website.",
+    "Do not add external JS/CSS dependencies beyond loading Google Fonts."
   ],
   "imageRequirements": {
     "required": [],
-    "edits": [
-      "Convert to grayscale with gentle contrast suitable for a dark UI (Snapchat-44209910-7.jpg > page2-grayscale.dim_800x1200.jpg)"
-    ]
-  },
-  "userProfileUpdate": {
-    "goalsToAdd": [],
-    "goalsToRemove": [],
-    "preferencesToAdd": [],
-    "preferencesToRemove": [],
-    "miscToAdd": [],
-    "miscToRemove": [],
-    "fieldsToSet": {},
-    "fieldsToDelete": []
+    "edits": []
   }
 }

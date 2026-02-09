@@ -8,10 +8,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Montserrat', 'Inter', 'system-ui', 'sans-serif'],
         serif: ['Playfair Display', 'Georgia', 'serif'],
-        display: ['Playfair Display', 'Georgia', 'serif'],
-        body: ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
+        cursive: ['Dancing Script', 'cursive'],
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -52,6 +51,23 @@ export default {
         border: 'oklch(var(--border))',
         input: 'oklch(var(--input))',
         ring: 'oklch(var(--ring))',
+        chart: {
+          '1': 'oklch(var(--chart-1))',
+          '2': 'oklch(var(--chart-2))',
+          '3': 'oklch(var(--chart-3))',
+          '4': 'oklch(var(--chart-4))',
+          '5': 'oklch(var(--chart-5))'
+        },
+        sidebar: {
+          DEFAULT: 'oklch(var(--sidebar-background))',
+          foreground: 'oklch(var(--sidebar-foreground))',
+          primary: 'oklch(var(--sidebar-primary))',
+          'primary-foreground': 'oklch(var(--sidebar-primary-foreground))',
+          accent: 'oklch(var(--sidebar-accent))',
+          'accent-foreground': 'oklch(var(--sidebar-accent-foreground))',
+          border: 'oklch(var(--sidebar-border))',
+          ring: 'oklch(var(--sidebar-ring))'
+        }
       }
     }
   },
